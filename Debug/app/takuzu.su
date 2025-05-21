@@ -1,0 +1,15 @@
+takuzu.c:28:6:resetSeed	8	static
+takuzu.c:39:6:isTimeExceeded	8	static
+takuzu.c:54:6:max2OnColJusquaLigne	8	static
+takuzu.c:73:6:compteEtVerifieColJusquaLigne	12	static
+takuzu.c:89:6:max2OnLine	4	static
+takuzu.c:105:6:compteEtVerifie	4	static
+takuzu.c:125:6:generateLine	32	static
+takuzu.c:167:6:Generate	8	static
+takuzu.c:202:6:showTakuzu	16	static
+takuzu.c:229:6:DetectLignePattern	12	static
+takuzu.c:265:6:CellRemover	72	static
+takuzu.c:289:6:TakuzuToMatrix	8	static
+takuzu.c:325:5:TogglePixel	8	static
+takuzu.c:362:5:CompareGrids	8	static
+takuzu.c:380:6:mainTakuzu	8	static

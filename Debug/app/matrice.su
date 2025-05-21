@@ -1,0 +1,6 @@
+matrice.c:54:5:InitMatrix	8	static
+matrice.c:65:8:GetPixelX	0	static
+matrice.c:74:8:GetPixelY	0	static
+matrice.c:27:5:MovePixel	16	static
+matrice.c:88:5:SetPixelX	8	static
+matrice.c:110:5:SetPixelY	8	static

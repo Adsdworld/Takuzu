@@ -1,0 +1,7 @@
+joystick.c:116:6:JoystickDisplay	8	static
+joystick.c:132:6:CalculateAngle	24	static
+joystick.c:144:6:UpdateJoystickX	8	static
+joystick.c:154:6:UpdateJoystickY	8	static
+joystick.c:82:5:Calibrate	16	static
+joystick.c:52:5:InitJoystick	16	static
+joystick.c:166:6:UpdateJoystickButton	8	static
