@@ -1,19 +1,10 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 #include <matrix.h>
->>>>>>> origin/master
-=======
-#include <matrix.h>
->>>>>>> origin/master
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include "takuzu.h"
 #include <stdbool.h>
 #include "WS2812/stm32g4_ws2812.h"
-<<<<<<< HEAD
-<<<<<<< HEAD
 #include <matrix.h>
 
 /* Matrix pixel position */
@@ -125,9 +116,7 @@ int SetPixelY(int8_t y){
 	}
 	matrix_pixel_y = y;
 	return MATRIX_SUCCESS;
-=======
-=======
->>>>>>> origin/master
+}
 
 /* Takuzu grids */
 int takuzuGenerated[SIZE][SIZE];
@@ -516,10 +505,6 @@ void mainTakuzu() {
 			takuzuToPlay[i][j] = takuzuToSolve[i][j];
 		}
 	}
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
->>>>>>> origin/master
 }
 
 
