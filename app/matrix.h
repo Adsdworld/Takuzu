@@ -3,7 +3,7 @@
 
 #define MATRICE_H
 /****************************************
- * Déclaration des #include
+ * Dï¿½claration des #include
  ****************************************/
 #include <stdint.h>
 
@@ -58,7 +58,7 @@ int InitMatrix();
 #define TAKUZU_H
 
 /****************************************
- * Déclaration des #define
+ * Dï¿½claration des #define
  ****************************************/
 #define TAKUZU_SUCCESS 0
 #define TAKUZU_FAILURE -1
@@ -68,12 +68,12 @@ int InitMatrix();
 
 
 /****************************************
- * Déclaration des variables
+ * Dï¿½claration des variables
  ****************************************/
 
 
 /****************************************
- * Déclaration des fonctions
+ * Dï¿½claration des fonctions
  ****************************************/
 int takuzuGenerated[SIZE][SIZE];
 int takuzuToSolve[SIZE][SIZE];
