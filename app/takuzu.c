@@ -156,8 +156,6 @@ bool generateLine(int row, int col) {
     return false;
 }
 
-
-
 /**
  * @brief Generates the Takuzu puzzle.
  *
@@ -188,9 +186,6 @@ void Generate() {
 
     printf("[TAKUZU][generate][info][complete] Takuzu generation completed.\n\r");
 }
-
-
-
 
 /**
  * @brief Displays the current Takuzu grid.
@@ -346,6 +341,18 @@ int TogglePixel(int x, int y) {
 	}
 
 	return TAKUZU_FAILURE;
+}
+
+/**
+ * @brief Toggles the value of the current pixel in the Takuzu grid.
+ *
+ * This function toggles the value of the pixel at the current position (as defined by `GetPixelX()` and
+ * `GetPixelY()`). It calls `TogglePixel` with the current pixel coordinates.
+ *
+ * @return void
+ */
+void ToggleCurrentPixel() {
+	TogglePixel(GetPixelX(), GetPixelY());
 }
 
 /**

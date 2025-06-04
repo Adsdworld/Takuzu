@@ -40,8 +40,8 @@ app/game.o: ../app/game.c ../drivers/bsp/stm32g4_adc.h ../app/config.h \
  ../drivers/stm32g4xx_hal/Inc/stm32g4xx_hal_tim_ex.h \
  ../drivers/stm32g4xx_hal/Inc/stm32g4xx_hal_uart.h \
  ../drivers/stm32g4xx_hal/Inc/stm32g4xx_hal_uart_ex.h \
- ../drivers/bsp/stm32g4_utils.h ../app/takuzu.h ../app/joystick.h \
- ../app/matrix.h
+ ../drivers/bsp/stm32g4_utils.h ../drivers/bsp/stm32g4_systick.h \
+ ../app/game.h ../app/takuzu.h ../app/joystick.h ../app/matrix.h
 
 ../drivers/bsp/stm32g4_adc.h:
 
@@ -130,6 +130,10 @@ app/game.o: ../app/game.c ../drivers/bsp/stm32g4_adc.h ../app/config.h \
 ../drivers/stm32g4xx_hal/Inc/stm32g4xx_hal_uart_ex.h:
 
 ../drivers/bsp/stm32g4_utils.h:
+
+../drivers/bsp/stm32g4_systick.h:
+
+../app/game.h:
 
 ../app/takuzu.h:
 

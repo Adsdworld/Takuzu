@@ -13,7 +13,6 @@
 #include "stm32g4_adc.h"
 #include <math.h>
 
-
 /* For colors */
 #include "WS2812/stm32g4_ws2812.h"
 
@@ -33,9 +32,22 @@ GPIO_PinState joystick_button;
 bool joystick_allow_move = false;
 
 /* Angle and distance */
-float angle;
-float dx;
-float dy;
+float angle, dx, dy;
+
+/* A function that return void could be set */
+GenericCallback button_callback = NULL;
+
+/* 0 = released, 1 = pressed */
+volatile uint8_t button_state = 0;
+
+/* Counter */
+volatile uint32_t debounce_timer = 0;
+
+/* Press duration */
+volatile uint32_t button_press_duration = 0;
+
+/* Button flag if 1, execute button_callback() */
+volatile uint8_t button_event_pending = 0;
 
 /**
  * @brief Initializes the joystick hardware.
@@ -61,8 +73,69 @@ int InitJoystick (){
 	if (error == 0) {
 		return JOYSTICK_SUCCESS;
 	}
+
     printf("[JOYSTICK][InitJoystick][error] %d errors occured during InitJoystick.\n\r", error);
 	return JOYSTICK_FAILURE;
+}
+
+/**
+ * @brief Processes joystick button events every millisecond.
+ *
+ * This function is intended to be called periodically (e.g., every millisecond)
+ * to handle button debouncing and long press detection.
+ */
+void joystick_button_process_ms(void) {
+    if (debounce_timer > 0) debounce_timer--;
+    if (button_press_duration > 0) button_press_duration++;
+}
+
+/**
+ * @brief Detects joystick button presses and executes the associated callback.
+ *
+ * This function checks the state of the joystick button, manages debouncing,
+ * and triggers a callback function when a button press is detected.
+ * It distinguishes between short and long presses based on predefined delays.
+ */
+void DetectButtonAndExecuteCallback() {
+	UpdateJoystickButton();
+
+    /* If button is pressed and debounce has ended */
+    if (joystick_button == GPIO_PIN_RESET && debounce_timer == 0 && button_state == 0) {
+        printf("[DEBUG] Bouton press� (d�but)\r\n");
+        button_state = 1;
+        debounce_timer = JOYSTICK_BUTTON_DEBOUNCE_DELAY_MS;
+        button_press_duration = 1;
+
+    }
+
+    /* If the button is released and it was pressed */
+    if (joystick_button == GPIO_PIN_SET && button_state == 1) {
+        printf("[DEBUG] Bouton rel�ch�\r\n");
+
+        button_state = 0;
+        debounce_timer = JOYSTICK_BUTTON_DEBOUNCE_DELAY_MS;
+
+        /**
+         * If the button was pressed for a long time, we consider it a long press
+         * and trigger the callback function.
+         */
+        if (button_press_duration >= JOYSTICK_BUTTON_LONG_PRESS_DELAY_MS) {
+            printf("[DEBUG] Appui long d�tect�, pixel va changer\r\n");
+
+            button_event_pending = 1;
+        }
+
+        button_press_duration = 0;
+    }
+
+    /* If a button event is pending, execute the callback function.
+     * This allows the button press to be processed without blocking the main loop.
+     */
+    if (button_event_pending) {
+        printf("[DEBUG] TogglePixel d�clench� !\r\n");
+        button_callback();
+        button_event_pending = 0;
+    }
 }
 
 /**

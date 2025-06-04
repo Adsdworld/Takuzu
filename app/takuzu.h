@@ -3,22 +3,21 @@
 #define TAKUZU_H
 
 /****************************************
- * Déclaration des #define
+ * Dï¿½claration des #define
  ****************************************/
 #define TAKUZU_SUCCESS 0
 #define TAKUZU_FAILURE -1
-
 #define SIZE 8
 #define EMPTY 2
 
 
 /****************************************
- * Déclaration des variables
+ * Dï¿½claration des variables
  ****************************************/
 
 
 /****************************************
- * Déclaration des fonctions
+ * Dï¿½claration des fonctions
  ****************************************/
 int takuzuGenerated[SIZE][SIZE];
 int takuzuToSolve[SIZE][SIZE];
@@ -26,8 +25,8 @@ int takuzuToPlay[SIZE][SIZE];
 void affichertakuzu(int takuzu[SIZE][SIZE]);
 void TakuzuToMatrix(uint32_t* pixels, int takuzu[SIZE][SIZE]);
 int TogglePixel(int x, int y);
+void ToggleCurrentPixel();
 int CompareGrids(int grid1[SIZE][SIZE], int grid2[SIZE][SIZE]);
 void mainTakuzu();
-
 
 #endif // TAKUZU_H
