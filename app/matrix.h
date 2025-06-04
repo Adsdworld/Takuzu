@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 #ifndef MATRICE_H
 
 #define MATRICE_H
@@ -53,6 +54,8 @@ int InitMatrix();
 
 #endif // MATRICE_H
 =======
+=======
+>>>>>>> origin/master
 #ifndef TAKUZU_H
 
 #define TAKUZU_H
@@ -86,4 +89,7 @@ void mainTakuzu();
 
 
 #endif // TAKUZU_H
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
