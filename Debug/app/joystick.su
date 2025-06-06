@@ -18,3 +18,6 @@ joystick.c:317:10:GetJoystickX	0	static
 joystick.c:326:10:GetJoystickY	0	static
 joystick.c:335:6:GetJoystickAllowMove	0	static
 joystick.c:344:6:SetJoystickAllowMove	0	static
+joystick.c:353:6:RunButtonCallback	8	static
+joystick.c:363:6:SetButtonCallback	0	static
+joystick.c:372:9:GetButtonState	0	static

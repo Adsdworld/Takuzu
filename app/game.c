@@ -32,7 +32,7 @@ uint8_t InitGame () {
 
 	BSP_systick_add_callback_function(&DetectButtonAndExecuteCallback);
 	BSP_systick_add_callback_function(&joystick_button_process_ms);
-	button_callback = &ToggleCurrentPixel;
+	SetButtonCallback(&ToggleCurrentPixel);
 	return GAME_SUCCESS;
 }
 
@@ -61,7 +61,7 @@ void MainGame() {
     }
 
     /* If joystick button is press handle it */
-    if (button_state == BUTTON_PRESS) {
+    if (GetButtonState() == BUTTON_PRESS) {
     	SetJoystickAllowMove(false);
     }
 
@@ -113,7 +113,7 @@ void MainGame() {
 void EndGame () {
 	BSP_systick_remove_callback_function(&DetectButtonAndExecuteCallback);
 	BSP_systick_remove_callback_function(&joystick_button_process_ms);
-	button_callback = NULL;
+	SetButtonCallback(NULL);
 }
 
 /**

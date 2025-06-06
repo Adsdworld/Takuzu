@@ -332,7 +332,7 @@ uint16_t GetJoystickY(void) {
  *
  * @return void.
  */
-bool GetJoystickAllowMove(){
+bool GetJoystickAllowMove() {
 	return joystick_allow_move;
 }
 
@@ -341,7 +341,34 @@ bool GetJoystickAllowMove(){
  *
  * @param bool allow move.
  */
-void SetJoystickAllowMove(bool allow_move){
+void SetJoystickAllowMove(bool allow_move) {
 	joystick_allow_move = allow_move;
 }
 
+/**
+ * @brief Run the callback of the button
+ *
+ * @return void
+ */
+void RunButtonCallback(void) {
+	button_callback();
+}
+
+/**
+ * @brief Sets the callback of the button.
+ *
+ * @param GenericCallback callback.
+ * @return void.
+ */
+void SetButtonCallback(GenericCallback callback) {
+	button_callback = callback;
+}
+
+/**
+ * @brief Gets joystick button state.
+ *
+ * @return uint8_t
+ */
+uint8_t GetButtonState() {
+	return button_state;
+}

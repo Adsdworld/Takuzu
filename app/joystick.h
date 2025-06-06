@@ -36,13 +36,6 @@ typedef void (*GenericCallback)(void);
 
 
 /****************************************
- * Déclaration des variables
- ****************************************/
-extern GenericCallback button_callback;
-extern volatile uint8_t button_state;
-
-
-/****************************************
  * Déclaration des fonctions
  ****************************************/
 extern uint8_t InitJoystick(void);
@@ -60,5 +53,9 @@ extern uint16_t GetJoystickYCalib(void);
 extern bool GetJoystickAllowMove(void);
 extern void SetJoystickAllowMove(bool);
 extern float GetAngle(void);
+extern void RunButtonCallback(void);
+extern void SetButtonCallback(GenericCallback);
+extern uint8_t GetButtonState(void);
+
 
 #endif // JOYSTICK_H
