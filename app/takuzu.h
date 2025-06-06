@@ -19,14 +19,14 @@
 /****************************************
  * Déclaration des fonctions
  ****************************************/
-int takuzuGenerated[SIZE][SIZE];
-int takuzuToSolve[SIZE][SIZE];
-int takuzuToPlay[SIZE][SIZE];
-void affichertakuzu(int takuzu[SIZE][SIZE]);
-void TakuzuToMatrix(uint32_t* pixels, int takuzu[SIZE][SIZE]);
-int TogglePixel(int x, int y);
-void ToggleCurrentPixel();
-int CompareGrids(int grid1[SIZE][SIZE], int grid2[SIZE][SIZE]);
-void mainTakuzu();
+extern uint8_t takuzuGenerated[SIZE][SIZE];
+extern uint8_t takuzuToSolve[SIZE][SIZE];
+extern uint8_t takuzuToPlay[SIZE][SIZE];
+extern void affichertakuzu(uint8_t takuzu[SIZE][SIZE]);
+extern void TakuzuToMatrix(uint32_t* pixels, uint8_t takuzu[SIZE][SIZE]);
+extern uint8_t TogglePixel(uint8_t x, uint8_t y);
+extern void ToggleCurrentPixel();
+extern uint8_t CompareGrids(uint8_t grid1[SIZE][SIZE], uint8_t grid2[SIZE][SIZE]);
+extern void mainTakuzu();
 
 #endif // TAKUZU_H

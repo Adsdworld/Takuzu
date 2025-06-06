@@ -17,7 +17,7 @@
 /****************************************
  * Déclaration des fonctions
  ****************************************/
-void MainGame(void);
-int StartGame();
+extern void MainGame(void);
+extern uint8_t StartGame();
 
 #endif // GAME_H

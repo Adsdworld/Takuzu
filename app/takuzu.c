@@ -7,9 +7,9 @@
 #include "WS2812/stm32g4_ws2812.h"
 
 /* Takuzu grids */
-int takuzuGenerated[SIZE][SIZE];
-int takuzuToSolve[SIZE][SIZE];
-int takuzuToPlay[SIZE][SIZE];
+uint8_t takuzuGenerated[SIZE][SIZE];
+uint8_t takuzuToSolve[SIZE][SIZE];
+uint8_t takuzuToPlay[SIZE][SIZE];
 
 /* Store the start date of when a takuzu is generated
  *
@@ -52,8 +52,8 @@ bool isTimeExceeded() {
  *
  * @return true if no repeated sequences exist, false otherwise.
  */
-bool max2OnColJusquaLigne(int col, int ligneMax) {
-    for (int i = 0; i < ligneMax - 1; i++) {
+bool max2OnColJusquaLigne(uint8_t col, uint8_t ligneMax) {
+    for (uint8_t i = 0; i < ligneMax - 1; i++) {
         if (takuzuGenerated[i][col] != EMPTY &&
             takuzuGenerated[i][col] == takuzuGenerated[i+1][col] &&
             takuzuGenerated[i+1][col] == takuzuGenerated[i+2][col]) {
@@ -71,9 +71,9 @@ bool max2OnColJusquaLigne(int col, int ligneMax) {
  *
  * @return true if the count of 0's and 1's is valid, false otherwise.
  */
-bool compteEtVerifieColJusquaLigne(int col, int ligneMax) {
-    int count0 = 0, count1 = 0;
-    for (int i = 0; i <= ligneMax; i++) {
+bool compteEtVerifieColJusquaLigne(uint8_t col, uint8_t ligneMax) {
+	uint8_t count0 = 0, count1 = 0;
+    for (uint8_t i = 0; i <= ligneMax; i++) {
         if (takuzuGenerated[i][col] == 0) count0++;
         else if (takuzuGenerated[i][col] == 1) count1++;
     }
@@ -87,8 +87,8 @@ bool compteEtVerifieColJusquaLigne(int col, int ligneMax) {
  *
  * @return true if no repeated sequences exist, false otherwise.
  */
-bool max2OnLine(int ligne[SIZE]) {
-    for (int i = 0; i < SIZE - 2; i++) {
+bool max2OnLine(uint8_t ligne[SIZE]) {
+    for (uint8_t i = 0; i < SIZE - 2; i++) {
         if (ligne[i] != EMPTY && ligne[i] == ligne[i + 1] && ligne[i + 1] == ligne[i + 2]) {
             return false;
         }
@@ -103,9 +103,9 @@ bool max2OnLine(int ligne[SIZE]) {
  *
  * @return true if the count of 0's and 1's is valid, false otherwise.
  */
-bool compteEtVerifie(int ligne[SIZE]) {
-    int count0 = 0, count1 = 0;
-    for (int i = 0; i < SIZE; i++) {
+bool compteEtVerifie(uint8_t ligne[SIZE]) {
+	uint8_t count0 = 0, count1 = 0;
+    for (uint8_t i = 0; i < SIZE; i++) {
         if (ligne[i] == 0) count0++;
         else if (ligne[i] == 1) count1++;
     }
@@ -123,7 +123,7 @@ bool compteEtVerifie(int ligne[SIZE]) {
  *
  * @return true if a valid row is generated, false otherwise.
  */
-bool generateLine(int row, int col) {
+bool generateLine(uint8_t row, uint8_t col) {
 
     if (col == SIZE) {
         if (!max2OnLine(takuzuGenerated[row]) || !compteEtVerifie(takuzuGenerated[row]))
@@ -131,15 +131,15 @@ bool generateLine(int row, int col) {
         return true;
     }
 
-    int valeurs[2] = {0, 1};
+    uint8_t valeurs[2] = {0, 1};
     if (rand() % 2 == 0) {
-        int tmp = valeurs[0];
+    	uint8_t tmp = valeurs[0];
         valeurs[0] = valeurs[1];
         valeurs[1] = tmp;
     }
 
-    for (int i = 0; i < 2; i++) {
-        int value = valeurs[i];
+    for (uint8_t i = 0; i < 2; i++) {
+    	uint8_t value = valeurs[i];
         takuzuGenerated[row][col] = value;
 
         if (
@@ -169,8 +169,8 @@ void Generate() {
 	resetSeed();
 
     printf("[TAKUZU][generate][info][processing] Processing Takuzu generation.\n\r");
-    for (int i = 0; i < SIZE; i++) {
-        for (int j = 0; j < SIZE; j++) {
+    for (uint8_t i = 0; i < SIZE; i++) {
+        for (uint8_t j = 0; j < SIZE; j++) {
             takuzuGenerated[i][j] = EMPTY;
         }
 
@@ -197,12 +197,12 @@ void Generate() {
  * @param takuzu The Takuzu grid to display.
  * @return void
  */
-void showTakuzu(int takuzu[SIZE][SIZE]) {
+void showTakuzu(uint8_t takuzu[SIZE][SIZE]) {
     printf("[TAKUZU][showTakuzu][info][init] Show takuzu.\n");
     printf("[TAKUZU][showTakuzu][info][processing] Processing show takuzu.\n\r");
 
-    for (int j = 0; j < SIZE; j++) {
-        for (int i = 0; i < SIZE; i++) {
+    for (uint8_t j = 0; j < SIZE; j++) {
+        for (uint8_t i = 0; i < SIZE; i++) {
             if (takuzu[i][j] == EMPTY)
                 printf("- ");  // Affiche "-" pour les cases vides '2'
             else
@@ -225,11 +225,11 @@ void showTakuzu(int takuzu[SIZE][SIZE]) {
  * @param motif_size The size of the pattern.
  * @return void
  */
-void DetectLignePattern(int i, int ligne[], int motif[], int motif_size) {
-    for (int j = 0; j <= SIZE - motif_size; j++) {
-        int match = 1;
+void DetectLignePattern(uint8_t i, uint8_t ligne[], uint8_t motif[], uint8_t motif_size) {
+    for (uint8_t j = 0; j <= SIZE - motif_size; j++) {
+    	uint8_t match = 1;
 
-        for (int k = 0; k < motif_size; k++) {
+        for (uint8_t k = 0; k < motif_size; k++) {
             if (ligne[j + k] != motif[k]) {
                 match = 0;
                 break;
@@ -237,7 +237,7 @@ void DetectLignePattern(int i, int ligne[], int motif[], int motif_size) {
         }
 
         if (match) {
-            for (int k = 0; k < motif_size; k++) {
+            for (uint8_t k = 0; k < motif_size; k++) {
             	if (motif[0] == 1){ // on retire les 1
             		if (ligne[j + k] == 1) { // motif[k] == 1 &&
 						ligne[j + k] = EMPTY;
@@ -263,12 +263,12 @@ void DetectLignePattern(int i, int ligne[], int motif[], int motif_size) {
  * @return void
  */
 void CellRemover() {
-    int pattern_1001[] = {1, 0, 0, 1};
-    int pattern_0110[] = {0, 1, 1, 0};
-    int pattern_101[]  = {1, 0, 1};
-    int pattern_010[]  = {0, 1, 0};
+	uint8_t pattern_1001[] = {1, 0, 0, 1};
+	uint8_t pattern_0110[] = {0, 1, 1, 0};
+	uint8_t pattern_101[]  = {1, 0, 1};
+	uint8_t pattern_010[]  = {0, 1, 0};
 
-    for (int i = 0; i < SIZE; i++) {
+    for (uint8_t i = 0; i < SIZE; i++) {
         DetectLignePattern(i, takuzuToSolve[i], pattern_1001, 4);
         DetectLignePattern(i, takuzuToSolve[i], pattern_0110, 4);
         DetectLignePattern(i, takuzuToSolve[i], pattern_101, 3);
@@ -287,11 +287,11 @@ void CellRemover() {
  * @param takuzu A 2D array representing the Takuzu grid to be converted.
  * @return void
  */
-void TakuzuToMatrix(uint32_t* pixels, int takuzu[SIZE][SIZE]) {
-    for (int i = 0; i < SIZE; i++) {
-        for (int j = 0; j < SIZE; j++) {
-            //int index = i * SIZE + j;
-        	int index = j * SIZE + i;
+void TakuzuToMatrix(uint32_t* pixels, uint8_t takuzu[SIZE][SIZE]) {
+    for (uint8_t i = 0; i < SIZE; i++) {
+        for (uint8_t j = 0; j < SIZE; j++) {
+            //uint8_t index = i * SIZE + j;
+        	uint8_t index = j * SIZE + i;
 
             switch (takuzu[i][j]) {
                 case 0:
@@ -323,8 +323,8 @@ void TakuzuToMatrix(uint32_t* pixels, int takuzu[SIZE][SIZE]) {
  * @return TAKUZU_SUCCESS if the operation was successful, TAKUZU_FAILURE if there was an error (e.g.,
  *         attempting to modify a fixed cell).
  */
-int TogglePixel(int x, int y) {
-	int error = 0;
+uint8_t TogglePixel(uint8_t x, uint8_t y) {
+	uint8_t error = 0;
 
 	if (takuzuToSolve[x][y] != EMPTY) {
 	    printf("[TAKUZU][TogglePixel][info][player] Impossible fo modify a fix cell(%d, %d).\n\r", x, y);
@@ -372,9 +372,9 @@ void ToggleCurrentPixel() {
  *
  * @return 1 if the grids are identical, 0 otherwise.
  */
-int CompareGrids(int grid1[SIZE][SIZE], int grid2[SIZE][SIZE]) {
-    for (int i = 0; i < SIZE; i++) {
-        for (int j = 0; j < SIZE; j++) {
+uint8_t CompareGrids(uint8_t grid1[SIZE][SIZE], uint8_t grid2[SIZE][SIZE]) {
+    for (uint8_t i = 0; i < SIZE; i++) {
+        for (uint8_t j = 0; j < SIZE; j++) {
             if (grid1[i][j] != grid2[i][j]) {
                 return 0; // found a difference
             }
@@ -395,15 +395,15 @@ void mainTakuzu() {
 	Generate();
 	showTakuzu(takuzuGenerated);
 
-	for (int i = 0; i < SIZE; i++) {
-		for (int j = 0; j < SIZE; j++) {
+	for (uint8_t i = 0; i < SIZE; i++) {
+		for (uint8_t j = 0; j < SIZE; j++) {
 			takuzuToSolve[i][j] = takuzuGenerated[i][j];
 		}
 	}
 	CellRemover();
 	showTakuzu(takuzuToSolve);
-	for (int i = 0; i < SIZE; i++) {
-		for (int j = 0; j < SIZE; j++) {
+	for (uint8_t i = 0; i < SIZE; i++) {
+		for (uint8_t j = 0; j < SIZE; j++) {
 			takuzuToPlay[i][j] = takuzuToSolve[i][j];
 		}
 	}

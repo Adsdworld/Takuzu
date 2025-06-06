@@ -71,8 +71,8 @@ int main(void)
 	          "                                    yyyyyyy\n\r\n\r");
 
 
-	int errorMatrice = InitMatrix();
-	int errorJoystick = InitJoystick();
+	uint8_t errorMatrice = InitMatrix();
+	uint8_t errorJoystick = InitJoystick();
 
     if (errorMatrice != MATRIX_SUCCESS) {
         printf("[MAIN][main][error] Failed to initialize the matrix.\n\r");
@@ -89,7 +89,7 @@ int main(void)
     /* Background task, infinite loop... whatever you call it, you're never getting out of it */
 	while (1)
 	{
-		int errorStartGame = StartGame();
+		uint8_t errorStartGame = StartGame();
 		if (errorStartGame != GAME_SUCCESS) {
 			printf("[MAIN][main][error] Failed to start the game.\r\n");
 			return GAME_FAILURE;

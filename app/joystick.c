@@ -60,8 +60,8 @@ volatile uint8_t button_event_pending = 0;
  *
  * @return JOYSTICK_SUCCESS on success or JOYSTICK_FAILURE on failure.
  */
-int InitJoystick (){
-	int error = 0;
+uint8_t InitJoystick (){
+	uint8_t error = 0;
 	/* Joystick pins initialisation */
 	BSP_GPIO_pin_config(JOYSTICK_KEY_PORT, JOYSTICK_KEY_PIN, GPIO_MODE_INPUT, GPIO_PULLUP, GPIO_SPEED_FREQ_LOW, GPIO_NO_AF);
 	BSP_ADC_init();
@@ -152,14 +152,14 @@ void DetectButtonAndExecuteCallback() {
  *
  * @return JOYSTICK_SUCCESS on success or JOYSTICK_FAILURE on failure.
  */
-int Calibrate() {
+uint8_t Calibrate() {
     printf("[JOYSTICK][Calibrate][info][init] Joystick calibration.\n\r");
     uint32_t sum_x = 0, sum_y = 0;
     BSP_WS2812_display_full(WS2812_COLOR_LIGHT_RED, 64);
 
 
     printf("[JOYSTICK][Calibrate][info][processing] Processing joystick calibration.\n\r");
-    for (int i = 0; i < JOYSTICK_CALIBRATION; i++) {
+    for (uint8_t i = 0; i < JOYSTICK_CALIBRATION; i++) {
         HAL_Delay(10);
         UpdateJoystickX();
         UpdateJoystickY();
@@ -243,4 +243,76 @@ void UpdateJoystickY() {
  */
 void UpdateJoystickButton() {
 	joystick_button = HAL_GPIO_ReadPin(JOYSTICK_KEY_PORT, JOYSTICK_KEY_PIN);
+}
+
+/**
+ * @brief Sets the calibrated X value of the joystick.
+ *
+ * @param value The new calibrated X value.
+ */
+void setJoystickXCalib(uint16_t value) {
+    joystick_x_calib = value;
+}
+
+/**
+ * @brief Sets the calibrated Y value of the joystick.
+ *
+ * @param value The new calibrated Y value.
+ */
+void setJoystickYCalib(uint16_t value) {
+    joystick_y_calib = value;
+}
+
+/**
+ * @brief Sets the current X position of the joystick.
+ *
+ * @param value The new X position.
+ */
+void setJoystickX(uint16_t value) {
+    joystick_x = value;
+}
+
+/**
+ * @brief Sets the current Y position of the joystick.
+ *
+ * @param value The new Y position.
+ */
+void setJoystickY(uint16_t value) {
+    joystick_y = value;
+}
+
+/**
+ * @brief Gets the calibrated X value of the joystick.
+ *
+ * @return uint16_t The calibrated X value.
+ */
+uint16_t getJoystickXCalib(void) {
+    return joystick_x_calib;
+}
+
+/**
+ * @brief Gets the calibrated Y value of the joystick.
+ *
+ * @return uint16_t The calibrated Y value.
+ */
+uint16_t getJoystickYCalib(void) {
+    return joystick_y_calib;
+}
+
+/**
+ * @brief Gets the current X position of the joystick.
+ *
+ * @return uint16_t The current X position.
+ */
+uint16_t getJoystickX(void) {
+    return joystick_x;
+}
+
+/**
+ * @brief Gets the current Y position of the joystick.
+ *
+ * @return uint16_t The current Y position.
+ */
+uint16_t getJoystickY(void) {
+    return joystick_y;
 }

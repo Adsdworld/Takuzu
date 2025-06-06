@@ -21,8 +21,8 @@ uint32_t pixels[MATRIX_SIZE];
  *
  * @return MATRIX_SUCCESS on success or MATRIX_FAILURE on failure.
  */
-int MovePixel() {
-	int error = 0;
+uint8_t MovePixel() {
+	uint8_t error = 0;
 	if (GetPixelX() < 0 || GetPixelX() > 7 || GetPixelY() < 0 || GetPixelY() > 7) {
 		error++;
 	}
@@ -48,7 +48,7 @@ int MovePixel() {
  *
  * @return MATRIX_SUCCESS on success or MATRIX_FAILURE on failure.
  */
-int InitMatrix (){
+uint8_t InitMatrix (){
 	BSP_WS2812_init();
 	BSP_WS2812_display_full(WS2812_COLOR_LIGHT_RED, 64);
 	return MATRIX_SUCCESS;
@@ -82,8 +82,8 @@ int8_t GetPixelY(){
  * @param x New X coordinate.
  * @return MATRIX_SUCCESS on success or MATRIX_FAILURE on failure.
  */
-int SetPixelX(int8_t x){
-	int error = 0;
+uint8_t SetPixelX(int8_t x){
+	uint8_t error = 0;
 	if (x < 0 || x > 7) {
 		error++;
 	}
@@ -104,8 +104,8 @@ int SetPixelX(int8_t x){
  * @param y New Y coordinate.
  * @return MATRIX_SUCCESS on success or MATRIX_FAILURE on failure.
  */
-int SetPixelY(int8_t y){
-	int error = 0;
+uint8_t SetPixelY(int8_t y){
+	uint8_t error = 0;
 	if (y < 0 || y > 7) {
 		error++;
 	}

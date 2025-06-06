@@ -20,8 +20,8 @@
  * @brief Initialize the game, configure callbacks, and prepare the game environment.
  * @return GAME_SUCCESS on success, GAME_FAILURE on failure.
  */
-int InitGame () {
-	int error = 0;
+uint8_t InitGame () {
+	uint8_t error = 0;
 	CalculateAngle();
     error += MovePixel();
 
@@ -66,10 +66,13 @@ void MainGame() {
     }
 
     /* Else if, check if joystick is in the central zone */
-    else if ((joystick_x >= (joystick_x_calib - JOYSTICK_TOLERANCE)) && (joystick_x <= (joystick_x_calib + JOYSTICK_TOLERANCE)) &&
-        (joystick_y >= (joystick_y_calib - JOYSTICK_TOLERANCE)) && (joystick_y <= (joystick_y_calib + JOYSTICK_TOLERANCE))) {
-    	joystick_allow_move = true;
-    	HAL_Delay(50);
+    else if ((getJoystickX() >= (getJoystickXCalib() - JOYSTICK_TOLERANCE)) &&
+             (getJoystickX() <= (getJoystickXCalib() + JOYSTICK_TOLERANCE)) &&
+             (getJoystickY() >= (getJoystickYCalib() - JOYSTICK_TOLERANCE)) &&
+             (getJoystickY() <= (getJoystickYCalib() + JOYSTICK_TOLERANCE))) {
+
+        joystick_allow_move = true;
+        HAL_Delay(50);
     }
 
     /* Else if, joystick is not in the central zone, move the pixel */
@@ -117,8 +120,8 @@ void EndGame () {
  * @brief  Start the game by initializing it and running the main game loop.
  * @return GAME_SUCCESS on success, GAME_FAILURE on failure.
  */
-int StartGame() {
-	int error = InitGame();
+uint8_t StartGame() {
+	uint8_t error = InitGame();
 	if (error != GAME_SUCCESS) {
 		printf("[GAME][StartGame][error] Failed to initialize the game.\r\n");
 		return GAME_FAILURE;

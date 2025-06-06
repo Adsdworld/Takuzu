@@ -38,25 +38,27 @@ typedef void (*GenericCallback)(void);
 /****************************************
  * Déclaration des variables
  ****************************************/
-uint16_t joystick_x_calib, joystick_y_calib;
-uint16_t joystick_x, joystick_y;
-GPIO_PinState joystick_button;
-bool joystick_allow_move;
-float angle, dx, dy;
-GenericCallback button_callback;
-volatile uint8_t button_state;
+//extern GPIO_PinState joystick_button;
+extern bool joystick_allow_move;
+extern float angle, dx, dy;
+extern GenericCallback button_callback;
+extern volatile uint8_t button_state;
 
 
 /****************************************
  * Déclaration des fonctions
  ****************************************/
-int InitJoystick(void);
-int Calibrate(void);
-void CalculateAngle();
-void UpdateJoystickX();
-void UpdateJoystickY();
-void UpdateJoystickButton();
-void DetectButtonAndExecuteCallback();
-void joystick_button_process_ms(void);
+extern uint8_t InitJoystick(void);
+extern uint8_t Calibrate(void);
+extern void CalculateAngle();
+extern void UpdateJoystickX();
+extern void UpdateJoystickY();
+extern void UpdateJoystickButton();
+extern void DetectButtonAndExecuteCallback();
+extern void joystick_button_process_ms(void);
+extern uint16_t getJoystickX(void);
+extern uint16_t getJoystickY(void);
+extern uint16_t getJoystickXCalib(void);
+extern uint16_t getJoystickYCalib(void);
 
 #endif // JOYSTICK_H
