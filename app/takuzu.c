@@ -11,19 +11,20 @@ int takuzuGenerated[SIZE][SIZE];
 int takuzuToSolve[SIZE][SIZE];
 int takuzuToPlay[SIZE][SIZE];
 
-/* Store the date of when a takuzu is generated
+/* Store the start date of when a takuzu is generated
  *
- * Takuzu generation can be impossible or take a while if the solution is complex.
- * So, we set a short delay of 200 ms to try to generate a valid takuzu.
+ * Takuzu generation can be impossible or take a while if the solution is complex. 2^^64 possibilities
+ * So, we set a short delay of 200 ms to try to generate a valid takuzu quickly.
  * We use this date and the delay to determine if we must try another random generation.
  */
 uint32_t startDate;
 
 /**
- * @brief Resets the random seed for generating Takuzu puzzles.
+ * @brief Resets the random seed for generating Takuzu.
  *
  * This function sets the random seed to the current system tick using `HAL_GetTick()`,
- * ensuring randomness for Takuzu puzzle generation.
+ * ensuring randomness for Takuzu generation.
+ * @return void
  */
 void resetSeed() {
 	startDate = HAL_GetTick();
@@ -161,6 +162,7 @@ bool generateLine(int row, int col) {
  *
  * This function initializes the generation of a valid Takuzu puzzle by repeatedly calling
  * the recursive `generateLine` function and backtracking when necessary.
+ * @return void
  */
 void Generate() {
     printf("[TAKUZU][generate][info][init] Takuzu generation.\n\r");
@@ -175,7 +177,7 @@ void Generate() {
         bool success = generateLine(i, 0);
         if (!success) {
             i -= 2; // backtrack to previous line
-            if (i < -1) i = -1; // avoid infinit loop
+            if (i < -1) i = -1;
 
             if (isTimeExceeded()) {
 				resetSeed();
@@ -193,6 +195,7 @@ void Generate() {
  * This function prints the Takuzu grid to the console.
  *
  * @param takuzu The Takuzu grid to display.
+ * @return void
  */
 void showTakuzu(int takuzu[SIZE][SIZE]) {
     printf("[TAKUZU][showTakuzu][info][init] Show takuzu.\n");
@@ -220,6 +223,7 @@ void showTakuzu(int takuzu[SIZE][SIZE]) {
  * @param ligne The line to check for patterns.
  * @param motif The pattern to detect.
  * @param motif_size The size of the pattern.
+ * @return void
  */
 void DetectLignePattern(int i, int ligne[], int motif[], int motif_size) {
     for (int j = 0; j <= SIZE - motif_size; j++) {
@@ -256,6 +260,7 @@ void DetectLignePattern(int i, int ligne[], int motif[], int motif_size) {
  * This function checks for specific patterns (1001, 0110, 101, 010) in each row of the Takuzu grid
  * and removes them by setting the corresponding cells to EMPTY. The function iterates over all rows
  * and applies the `DetectLignePattern` function for each pattern.
+ * @return void
  */
 void CellRemover() {
     int pattern_1001[] = {1, 0, 0, 1};
@@ -280,6 +285,7 @@ void CellRemover() {
  *
  * @param pixels A pointer to the pixel array to store the color values.
  * @param takuzu A 2D array representing the Takuzu grid to be converted.
+ * @return void
  */
 void TakuzuToMatrix(uint32_t* pixels, int takuzu[SIZE][SIZE]) {
     for (int i = 0; i < SIZE; i++) {
@@ -364,7 +370,7 @@ void ToggleCurrentPixel() {
  * @param grid1 The first grid to compare.
  * @param grid2 The second grid to compare.
  *
- * @return true if the grids are identical, false otherwise.
+ * @return 1 if the grids are identical, 0 otherwise.
  */
 int CompareGrids(int grid1[SIZE][SIZE], int grid2[SIZE][SIZE]) {
     for (int i = 0; i < SIZE; i++) {
@@ -383,6 +389,7 @@ int CompareGrids(int grid1[SIZE][SIZE], int grid2[SIZE][SIZE]) {
  * This function generates a Takuzu puzzle, displays it, removes specific patterns, and prepares
  * the puzzle for gameplay. It creates a copy of the generated Takuzu puzzle, removes patterns from
  * it, and sets up the initial grid for the player to modify.
+ * @return void
  */
 void mainTakuzu() {
 	Generate();

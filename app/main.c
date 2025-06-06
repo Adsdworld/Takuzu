@@ -1,10 +1,9 @@
 /**
- *******************************************************************************
- * @file 	main.c
- * @author  de Sallier Dupin Arthur
- * @date 	14 04, 2025
- * @brief	Fichier principal de votre projet sur carte Nucléo STM32G431KB
- *******************************************************************************
+ * @file main.c
+ * @author Arthur de Sallier Dupin
+ * @brief Main file of the project for Nucleo STM32G431KB board
+ * @version 1.0
+ * @date 2025-04-14
  */
 
 #include "config.h"
@@ -15,7 +14,7 @@
 #include "stm32g4_utils.h"
 #include <stdio.h>
 
-/* our game include */
+/* Our game include */
 #include "game.h"
 
 /* Joystick */
@@ -27,30 +26,13 @@
 #define MAIN_SUCCESS 0
 #define MAIN_FAILURE -1
 
-/*bool char_received(uart_id_t uart_id) // not needed
-{
-	{
-		BSP_UART_get_next_byte(uart_id);
-		return true;
-	}
-	else
-		return false;
-}*/
-
-/*void heartbeat(void) // not needed
-{
-	while(! char_received(UART2_ID) )
-	{
-		write_LED(true);
-		HAL_Delay(50);
-		write_LED(false);
-		HAL_Delay(1500);
-	}
-}*/
-
 /**
-  * @brief  Point d'entrée de votre application
-  */
+ * @brief Main entry point of the application.
+ *
+ * Initializes all hardware peripherals (GPIO, UART, Joystick, LED Matrix) and starts the game loop.
+ *
+ * @return int Returns 0 on success, -1 on failure.
+ */
 int main(void)
 {
 	/* This line must remain the first in your main!
@@ -108,9 +90,10 @@ int main(void)
 	while (1)
 	{
 		int errorStartGame = StartGame();
-		if (errorStartGame != 0) {
+		if (errorStartGame != GAME_SUCCESS) {
 			printf("[MAIN][main][error] Failed to start the game.\r\n");
-			return -1;
+			return GAME_FAILURE;
 		}
+		printf("Game Won, Preparring next game !");
 	}
 }

@@ -1,5 +1,5 @@
 game.c:23:5:InitGame	8	static
-game.c:42:6:MakeMove	8	static
-game.c:50:6:MainGame	8	static
-game.c:107:6:EndGame	8	static
-game.c:117:5:StartGame	8	static
+game.c:43:6:MakeMove	8	static
+game.c:52:6:MainGame	8	static
+game.c:110:6:EndGame	8	static
+game.c:120:5:StartGame	8	static

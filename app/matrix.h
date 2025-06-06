@@ -2,18 +2,18 @@
 
 #define MATRICE_H
 /****************************************
- * Dï¿½claration des #include
+ * Déclaration des #include
  ****************************************/
 #include <stdint.h>
 
 
 /****************************************
- * Dï¿½claration des #define
+ * Déclaration des #define
  ****************************************/
 #define MATRIX_SUCCESS 0
 #define MATRIX_FAILURE -1
 
-/* Taille de la matrice 8x8 */
+/* Matrix size 8x8 */
 #define MATRIX_SIZE 64
 
 /* Colors */
@@ -34,13 +34,13 @@
 
 
 /****************************************
- * Dï¿½claration des variables
+ * Déclaration des variables
  ****************************************/
 uint32_t pixels[MATRIX_SIZE];
 
 
 /****************************************
- * Dï¿½claration des fonctions
+ * Déclaration des fonctions
  ****************************************/
 int InitMatrix(void);
 int MovePixel(void);

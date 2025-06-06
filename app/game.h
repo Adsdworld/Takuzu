@@ -8,6 +8,7 @@
 #define GAME_SUCCESS 0
 #define GAME_FAILURE -1
 
+
 /****************************************
  * Déclaration des variables
  ****************************************/

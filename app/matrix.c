@@ -6,13 +6,11 @@
 #include "WS2812/stm32g4_ws2812.h"
 #include <matrix.h>
 
-
 /* Matrix pixel position */
 int8_t matrix_pixel_x = 4, matrix_pixel_y = 4;
 
 /* Matrix pixels */
 uint32_t pixels[MATRIX_SIZE];
-
 
 /**
  * @brief Moves the active pixel on the LED matrix.
@@ -21,7 +19,7 @@ uint32_t pixels[MATRIX_SIZE];
  * then updates the matrix display to move the cursor to the specified position.
  * It uses the current state of a Takuzu puzzle and overlays the cursor pixel.
  *
- * @return int MATRIX_SUCCESS or MATRIX_FAILURE.
+ * @return MATRIX_SUCCESS on success or MATRIX_FAILURE on failure.
  */
 int MovePixel() {
 	int error = 0;
@@ -48,7 +46,7 @@ int MovePixel() {
  * with a full matrix set to light red. It can be used to verify that the matrix
  * hardware is properly connected and functional.
  *
- * @return int MATRIX_SUCCESS or MATRIX_FAILURE.
+ * @return MATRIX_SUCCESS on success or MATRIX_FAILURE on failure.
  */
 int InitMatrix (){
 	BSP_WS2812_init();
@@ -82,7 +80,7 @@ int8_t GetPixelY(){
  * ensuring it stays within the valid range (0 to 7).
  *
  * @param x New X coordinate.
- * @return int MATRIX_SUCCESS or MATRIX_FAILURE.
+ * @return MATRIX_SUCCESS on success or MATRIX_FAILURE on failure.
  */
 int SetPixelX(int8_t x){
 	int error = 0;
@@ -104,7 +102,7 @@ int SetPixelX(int8_t x){
  * ensuring it stays within the valid range (0 to 7).
  *
  * @param y New Y coordinate.
- * @return int MATRIX_SUCCESS or MATRIX_FAILURE.
+ * @return MATRIX_SUCCESS on success or MATRIX_FAILURE on failure.
  */
 int SetPixelY(int8_t y){
 	int error = 0;

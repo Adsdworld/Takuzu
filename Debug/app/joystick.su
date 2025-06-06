@@ -1,9 +1,9 @@
-joystick.c:87:6:joystick_button_process_ms	0	static
-joystick.c:189:6:JoystickDisplay	8	static
-joystick.c:205:6:CalculateAngle	24	static
-joystick.c:217:6:UpdateJoystickX	8	static
-joystick.c:227:6:UpdateJoystickY	8	static
+joystick.c:86:6:joystick_button_process_ms	0	static
+joystick.c:190:6:JoystickDisplay	8	static
+joystick.c:207:6:CalculateAngle	24	static
+joystick.c:220:6:UpdateJoystickX	8	static
+joystick.c:231:6:UpdateJoystickY	8	static
 joystick.c:155:5:Calibrate	16	static
-joystick.c:64:5:InitJoystick	16	static
-joystick.c:239:6:UpdateJoystickButton	8	static
+joystick.c:63:5:InitJoystick	16	static
+joystick.c:244:6:UpdateJoystickButton	8	static
 joystick.c:99:6:DetectButtonAndExecuteCallback	8	static

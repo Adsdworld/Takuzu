@@ -3,7 +3,7 @@
 #define TAKUZU_H
 
 /****************************************
- * Dï¿½claration des #define
+ * Déclaration des #define
  ****************************************/
 #define TAKUZU_SUCCESS 0
 #define TAKUZU_FAILURE -1
@@ -12,12 +12,12 @@
 
 
 /****************************************
- * Dï¿½claration des variables
+ * Déclaration des variables
  ****************************************/
 
 
 /****************************************
- * Dï¿½claration des fonctions
+ * Déclaration des fonctions
  ****************************************/
 int takuzuGenerated[SIZE][SIZE];
 int takuzuToSolve[SIZE][SIZE];

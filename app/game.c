@@ -14,7 +14,7 @@
 #include "joystick.h"
 
 /* Matrix */
-#include "matrix.h" //float dx, dy;
+#include "matrix.h"
 
 /**
  * @brief Initialize the game, configure callbacks, and prepare the game environment.
@@ -38,6 +38,7 @@ int InitGame () {
 
 /**
  * @brief Make a move on the matrix and temporarily disable movement.
+ * @return void
  */
 void MakeMove() {
     joystick_allow_move = false;
@@ -46,6 +47,7 @@ void MakeMove() {
 
 /**
  * @brief Main game loop, handles joystick input and pixel movement.
+ * @return void
  */
 void MainGame() {
 
@@ -59,43 +61,43 @@ void MainGame() {
     }
 
     /* If joystick button is press handle it */
-    if (button_state == 1) {
+    if (button_state == BUTTON_PRESS) {
     	joystick_allow_move = false;
     }
 
-    /* Check if joystick is in the central zone */
+    /* Else if, check if joystick is in the central zone */
     else if ((joystick_x >= (joystick_x_calib - JOYSTICK_TOLERANCE)) && (joystick_x <= (joystick_x_calib + JOYSTICK_TOLERANCE)) &&
         (joystick_y >= (joystick_y_calib - JOYSTICK_TOLERANCE)) && (joystick_y <= (joystick_y_calib + JOYSTICK_TOLERANCE))) {
     	joystick_allow_move = true;
     	HAL_Delay(50);
     }
 
-    /* If joystick is not in the central zone, move the pixel */
+    /* Else if, joystick is not in the central zone, move the pixel */
     else if (joystick_allow_move) {
 
-    	if (angle >= -45 && angle <= 45) { /* Top */
+    	if (angle >= -45 && angle <= 45) { /* Left */
     		if (GetPixelX() > 0) {
     			SetPixelX(GetPixelX()-1);
     			MakeMove();
-    			printf("TOP\r\n");
+    			//printf("[GAME][StartGame][debug] Left\r\n");
     		}
-		} else if (angle > 45 && angle <= 135) { /* Right */
+		} else if (angle > 45 && angle <= 135) { /* Bottom */
 			if (GetPixelY() < 7) {
 				SetPixelY(GetPixelY()+1);
 				MakeMove();
-				printf("RIGHT\r\n");
+				//printf("[GAME][StartGame][debug] Bottom\r\n");
 			}
-		} else if (angle < -45 && angle >= -135) { /* Left */
+		} else if (angle < -45 && angle >= -135) { /* Top */
 			if (GetPixelY() > 0) {
 				SetPixelY(GetPixelY()-1);
 				MakeMove();
-				printf("LEFT\r\n");
+				//printf("[GAME][StartGame][debug] Top\r\n");
 			}
 		} else {
-			if (GetPixelX() < 7) { /* Bottom */
+			if (GetPixelX() < 7) { /* Right */
 				SetPixelX(GetPixelX()+1);
 				MakeMove();
-				printf("BOTTOM\r\n");
+				//printf("[GAME][StartGame][debug] Right\r\n");
 			}
 		}
     }
@@ -103,6 +105,7 @@ void MainGame() {
 
 /**
 * @brief  End the game and release associated resources.
+* @return void
 */
 void EndGame () {
 	BSP_systick_remove_callback_function(&DetectButtonAndExecuteCallback);
@@ -111,9 +114,9 @@ void EndGame () {
 }
 
 /**
-* @brief  Start the game by initializing it and running the main game loop.
-* @return GAME_SUCCESS on success, GAME_FAILURE on failure.
-*/
+ * @brief  Start the game by initializing it and running the main game loop.
+ * @return GAME_SUCCESS on success, GAME_FAILURE on failure.
+ */
 int StartGame() {
 	int error = InitGame();
 	if (error != GAME_SUCCESS) {
@@ -121,8 +124,10 @@ int StartGame() {
 		return GAME_FAILURE;
 	}
 
+	/* Generate takuzu */
 	mainTakuzu();
 
+	/* Playing while takuzu is not solve */
 	while(!CompareGrids(takuzuGenerated, takuzuToPlay)) {
 		MainGame();
 	}
