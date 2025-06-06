@@ -9,7 +9,7 @@ takuzu.c:167:6:Generate	8	static
 takuzu.c:200:6:showTakuzu	16	static
 takuzu.c:228:6:DetectLignePattern	16	static
 takuzu.c:265:6:CellRemover	32	static
-takuzu.c:290:6:TakuzuToMatrix	8	static
+takuzu.c:290:6:TakuzuToMatrix	16	static
 takuzu.c:326:9:TogglePixel	8	static
 takuzu.c:360:6:ToggleCurrentPixel	8	static
 takuzu.c:375:9:CompareGrids	8	static

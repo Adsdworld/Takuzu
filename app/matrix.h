@@ -34,12 +34,6 @@
 
 
 /****************************************
- * Déclaration des variables
- ****************************************/
-extern uint32_t pixels[MATRIX_SIZE];
-
-
-/****************************************
  * Déclaration des fonctions
  ****************************************/
 extern uint8_t InitMatrix(void);
@@ -49,5 +43,7 @@ extern int8_t GetPixelY(void);
 extern uint8_t SetPixelX(int8_t y);
 extern uint8_t SetPixelY(int8_t y);
 extern uint8_t InitMatrix();
+extern uint32_t* GetMatrixPixels(void);
+extern uint8_t SetMatrixPixels(uint8_t, uint32_t);
 
 #endif // MATRICE_H

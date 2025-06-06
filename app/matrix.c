@@ -27,11 +27,11 @@ uint8_t MovePixel() {
 		error++;
 	}
 	if (error != 0) {
-		printf("[MATRIX][MovePixel][warning] Could not move to (%d, %d).\n\r", GetPixelX(), GetPixelY());
+		printf("[MATRIX][MovePixel][warning] Could not move to (%u, %u).\n\r", GetPixelX(), GetPixelY());
 		return MATRIX_FAILURE;
 	}
 
-	TakuzuToMatrix(pixels, takuzuToPlay);
+	TakuzuToMatrix(GetMatrixPixels(), takuzuToPlay);
 
 	pixels[8*GetPixelY() + GetPixelX()] = CURSOR_COLOR;
 
@@ -88,7 +88,7 @@ uint8_t SetPixelX(int8_t x){
 		error++;
 	}
 	if (error != 0) {
-		printf("[MATRIX][SetPixelX][error] Could not set X to (%d).\n\r", x);
+		printf("[MATRIX][SetPixelX][error] Could not set X to (%u).\n\r", x);
 		return MATRIX_FAILURE;
 	}
 	matrix_pixel_x = x;
@@ -110,11 +110,40 @@ uint8_t SetPixelY(int8_t y){
 		error++;
 	}
 	if (error != 0) {
-		printf("[MATRIX][SetPixelY][error] Could not set Y to (%d).\n\r", y);
+		printf("[MATRIX][SetPixelY][error] Could not set Y to (%u).\n\r", y);
 		return MATRIX_FAILURE;
 	}
 	matrix_pixel_y = y;
 	return MATRIX_SUCCESS;
 }
+
+/**
+ * @brief Gets Matrix pixels tab.
+ *
+ * @return tab uint32_t.
+ */
+uint32_t* GetMatrixPixels(void) {
+	return pixels;
+}
+
+/**
+ * @brief Sets matrix pixels tab.
+ *
+ * @return void.
+ */
+uint8_t SetMatrixPixels(uint8_t index, uint32_t color) {
+	uint8_t error = 0;
+	if (index < 0 || index > MATRIX_SIZE) {
+		error++;
+	}
+	if (error != 0) {
+		printf("[MATRIX][SetMatrixPixels][error] Could not set matrix pixel (%u) to (%lu).\n\r", index, color);
+		return MATRIX_FAILURE;
+	}
+	pixels[index] = color;
+	return MATRIX_SUCCESS;
+}
+
+
 
 

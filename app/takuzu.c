@@ -206,7 +206,7 @@ void showTakuzu(uint8_t takuzu[SIZE][SIZE]) {
             if (takuzu[i][j] == EMPTY)
                 printf("- ");  // Affiche "-" pour les cases vides '2'
             else
-                printf("%d ", takuzu[i][j]);  // Affiche 0 ou 1
+                printf("%u ", takuzu[i][j]);  // Affiche 0 ou 1
         }
         printf("\n\r");
     }
@@ -295,14 +295,14 @@ void TakuzuToMatrix(uint32_t* pixels, uint8_t takuzu[SIZE][SIZE]) {
 
             switch (takuzu[i][j]) {
                 case 0:
-                    pixels[index] = WS2812_COLOR_LIGHT_BLUE;
+                	SetMatrixPixels(index, WS2812_COLOR_LIGHT_BLUE);
                     break;
                 case 1:
-                    pixels[index] = WS2812_COLOR_LIGHT_GREEN;
+                	SetMatrixPixels(index, WS2812_COLOR_LIGHT_GREEN);
                     break;
                 case EMPTY:
                 default:
-                    pixels[index] = WS2812_COLOR_BLACK;
+                	SetMatrixPixels(index, WS2812_COLOR_BLACK);
                     break;
             }
         }
@@ -327,7 +327,7 @@ uint8_t TogglePixel(uint8_t x, uint8_t y) {
 	uint8_t error = 0;
 
 	if (takuzuToSolve[x][y] != EMPTY) {
-	    printf("[TAKUZU][TogglePixel][info][player] Impossible fo modify a fix cell(%d, %d).\n\r", x, y);
+	    printf("[TAKUZU][TogglePixel][info][player] Impossible fo modify a fix cell(%u, %u).\n\r", x, y);
 	    return TAKUZU_FAILURE;
 	}
 

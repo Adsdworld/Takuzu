@@ -70,7 +70,7 @@ uint8_t InitJoystick (){
 
 	error += Calibrate();
 	if (error != JOYSTICK_SUCCESS) {
-	    printf("[JOYSTICK][InitJoystick][error] %d errors occured during Calibrate.\n\r", error);
+	    printf("[JOYSTICK][InitJoystick][error] %u errors occured during Calibrate.\n\r", error);
 		return JOYSTICK_FAILURE;
 	}
 	return JOYSTICK_SUCCESS;
@@ -171,8 +171,8 @@ uint8_t Calibrate() {
     joystick_y_calib = sum_y / JOYSTICK_CALIBRATION;
 
     printf("[JOYSTICK][Calibrate][info][complete] Joyctick calibration completed.\n\r");
-    printf("X calibre: %d\n\r", joystick_x_calib);
-    printf("Y calibre: %d\n\r", joystick_y_calib);
+    printf("X calibre: %u\n\r", joystick_x_calib);
+    printf("Y calibre: %u\n\r", joystick_y_calib);
     BSP_WS2812_display_full(WS2812_COLOR_BLACK, 64);
 
     return JOYSTICK_SUCCESS;
@@ -188,7 +188,7 @@ uint8_t Calibrate() {
  * @return void
  */
 void JoystickDisplay () {
-    printf("KEY STATE: %d\n\r", HAL_GPIO_ReadPin(JOYSTICK_KEY_PORT, JOYSTICK_KEY_PIN));
+    printf("KEY STATE: %u\n\r", HAL_GPIO_ReadPin(JOYSTICK_KEY_PORT, JOYSTICK_KEY_PIN));
     printf("X STATE: %04d Y STATE: %04d\n\r", BSP_ADC_getValue(ADC_1), BSP_ADC_getValue(ADC_2));
 }
 
