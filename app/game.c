@@ -41,7 +41,7 @@ uint8_t InitGame () {
  * @return void
  */
 void MakeMove() {
-    joystick_allow_move = false;
+	SetJoystickAllowMove(false);
     MovePixel();
 }
 
@@ -56,41 +56,41 @@ void MainGame() {
     UpdateJoystickY();
 
     /* Calculate angle of the joystick if allowed to move */
-    if (joystick_allow_move == true) {
+    if (GetJoystickAllowMove() == true) {
     	CalculateAngle();
     }
 
     /* If joystick button is press handle it */
     if (button_state == BUTTON_PRESS) {
-    	joystick_allow_move = false;
+    	SetJoystickAllowMove(false);
     }
 
     /* Else if, check if joystick is in the central zone */
-    else if ((getJoystickX() >= (getJoystickXCalib() - JOYSTICK_TOLERANCE)) &&
-             (getJoystickX() <= (getJoystickXCalib() + JOYSTICK_TOLERANCE)) &&
-             (getJoystickY() >= (getJoystickYCalib() - JOYSTICK_TOLERANCE)) &&
-             (getJoystickY() <= (getJoystickYCalib() + JOYSTICK_TOLERANCE))) {
+    else if ((GetJoystickX() >= (GetJoystickXCalib() - JOYSTICK_TOLERANCE)) &&
+             (GetJoystickX() <= (GetJoystickXCalib() + JOYSTICK_TOLERANCE)) &&
+             (GetJoystickY() >= (GetJoystickYCalib() - JOYSTICK_TOLERANCE)) &&
+             (GetJoystickY() <= (GetJoystickYCalib() + JOYSTICK_TOLERANCE))) {
 
-        joystick_allow_move = true;
+    	SetJoystickAllowMove(true);
         HAL_Delay(50);
     }
 
     /* Else if, joystick is not in the central zone, move the pixel */
-    else if (joystick_allow_move) {
+    else if (GetJoystickAllowMove()) {
 
-    	if (angle >= -45 && angle <= 45) { /* Left */
+    	if (GetAngle() >= -45 && GetAngle() <= 45) { /* Left */
     		if (GetPixelX() > 0) {
     			SetPixelX(GetPixelX()-1);
     			MakeMove();
     			//printf("[GAME][StartGame][debug] Left\r\n");
     		}
-		} else if (angle > 45 && angle <= 135) { /* Bottom */
+		} else if (GetAngle() > 45 && GetAngle() <= 135) { /* Bottom */
 			if (GetPixelY() < 7) {
 				SetPixelY(GetPixelY()+1);
 				MakeMove();
 				//printf("[GAME][StartGame][debug] Bottom\r\n");
 			}
-		} else if (angle < -45 && angle >= -135) { /* Top */
+		} else if (GetAngle() < -45 && GetAngle() >= -135) { /* Top */
 			if (GetPixelY() > 0) {
 				SetPixelY(GetPixelY()-1);
 				MakeMove();

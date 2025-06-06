@@ -211,6 +211,16 @@ void CalculateAngle() {
 }
 
 /**
+ * @brief Gets the current angle of the joystick.
+ *
+ * @return void.
+ */
+float GetAngle() {
+	return angle;
+}
+
+
+/**
  * @brief Updates the X axis value of the joystick.
  *
  * This function retrieves the current ADC value for the joystick's X axis using `BSP_ADC_getValue()`
@@ -250,7 +260,7 @@ void UpdateJoystickButton() {
  *
  * @param value The new calibrated X value.
  */
-void setJoystickXCalib(uint16_t value) {
+void SetJoystickXCalib(uint16_t value) {
     joystick_x_calib = value;
 }
 
@@ -259,7 +269,7 @@ void setJoystickXCalib(uint16_t value) {
  *
  * @param value The new calibrated Y value.
  */
-void setJoystickYCalib(uint16_t value) {
+void SetJoystickYCalib(uint16_t value) {
     joystick_y_calib = value;
 }
 
@@ -268,7 +278,7 @@ void setJoystickYCalib(uint16_t value) {
  *
  * @param value The new X position.
  */
-void setJoystickX(uint16_t value) {
+void SetJoystickX(uint16_t value) {
     joystick_x = value;
 }
 
@@ -277,7 +287,7 @@ void setJoystickX(uint16_t value) {
  *
  * @param value The new Y position.
  */
-void setJoystickY(uint16_t value) {
+void SetJoystickY(uint16_t value) {
     joystick_y = value;
 }
 
@@ -286,7 +296,7 @@ void setJoystickY(uint16_t value) {
  *
  * @return uint16_t The calibrated X value.
  */
-uint16_t getJoystickXCalib(void) {
+uint16_t GetJoystickXCalib(void) {
     return joystick_x_calib;
 }
 
@@ -295,7 +305,7 @@ uint16_t getJoystickXCalib(void) {
  *
  * @return uint16_t The calibrated Y value.
  */
-uint16_t getJoystickYCalib(void) {
+uint16_t GetJoystickYCalib(void) {
     return joystick_y_calib;
 }
 
@@ -304,7 +314,7 @@ uint16_t getJoystickYCalib(void) {
  *
  * @return uint16_t The current X position.
  */
-uint16_t getJoystickX(void) {
+uint16_t GetJoystickX(void) {
     return joystick_x;
 }
 
@@ -313,6 +323,25 @@ uint16_t getJoystickX(void) {
  *
  * @return uint16_t The current Y position.
  */
-uint16_t getJoystickY(void) {
+uint16_t GetJoystickY(void) {
     return joystick_y;
 }
+
+/**
+ * @brief Gets if a move is allowed.
+ *
+ * @return void.
+ */
+bool GetJoystickAllowMove(){
+	return joystick_allow_move;
+}
+
+/**
+ * @brief Sets if a move is allowed.
+ *
+ * @param bool allow move.
+ */
+void SetJoystickAllowMove(bool allow_move){
+	joystick_allow_move = allow_move;
+}
+
