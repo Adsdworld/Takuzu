@@ -22,11 +22,11 @@ uint32_t pixels[MATRIX_SIZE];
  * @return MATRIX_SUCCESS on success or MATRIX_FAILURE on failure.
  */
 uint8_t MovePixel() {
-	uint8_t error = 0;
+	uint8_t error = MATRIX_SUCCESS;
 	if (GetPixelX() < 0 || GetPixelX() > 7 || GetPixelY() < 0 || GetPixelY() > 7) {
 		error++;
 	}
-	if (error != 0) {
+	if (error != MATRIX_SUCCESS) {
 		printf("[MATRIX][MovePixel][warning] Could not move to (%u, %u).\n\r", GetPixelX(), GetPixelY());
 		return MATRIX_FAILURE;
 	}
@@ -83,11 +83,11 @@ int8_t GetPixelY(){
  * @return MATRIX_SUCCESS on success or MATRIX_FAILURE on failure.
  */
 uint8_t SetPixelX(int8_t x){
-	uint8_t error = 0;
+	uint8_t error = MATRIX_SUCCESS;
 	if (x < 0 || x > 7) {
 		error++;
 	}
-	if (error != 0) {
+	if (error != MATRIX_SUCCESS) {
 		printf("[MATRIX][SetPixelX][error] Could not set X to (%u).\n\r", x);
 		return MATRIX_FAILURE;
 	}
@@ -105,11 +105,11 @@ uint8_t SetPixelX(int8_t x){
  * @return MATRIX_SUCCESS on success or MATRIX_FAILURE on failure.
  */
 uint8_t SetPixelY(int8_t y){
-	uint8_t error = 0;
+	uint8_t error = MATRIX_SUCCESS;
 	if (y < 0 || y > 7) {
 		error++;
 	}
-	if (error != 0) {
+	if (error != MATRIX_SUCCESS) {
 		printf("[MATRIX][SetPixelY][error] Could not set Y to (%u).\n\r", y);
 		return MATRIX_FAILURE;
 	}
@@ -132,11 +132,11 @@ uint32_t* GetMatrixPixels(void) {
  * @return void.
  */
 uint8_t SetMatrixPixels(uint8_t index, uint32_t color) {
-	uint8_t error = 0;
+	uint8_t error = MATRIX_SUCCESS;
 	if (index < 0 || index > MATRIX_SIZE) {
 		error++;
 	}
-	if (error != 0) {
+	if (error != MATRIX_SUCCESS) {
 		printf("[MATRIX][SetMatrixPixels][error] Could not set matrix pixel (%u) to (%lu).\n\r", index, color);
 		return MATRIX_FAILURE;
 	}

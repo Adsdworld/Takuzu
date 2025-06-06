@@ -21,7 +21,7 @@
  * @return GAME_SUCCESS on success, GAME_FAILURE on failure.
  */
 uint8_t InitGame () {
-	uint8_t error = 0;
+	uint8_t error = GAME_SUCCESS;
 	CalculateAngle();
     error += MovePixel();
 

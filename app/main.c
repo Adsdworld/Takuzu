@@ -31,7 +31,7 @@
  *
  * Initializes all hardware peripherals (GPIO, UART, Joystick, LED Matrix) and starts the game loop.
  *
- * @return int Returns 0 on success, -1 on failure.
+ * @return int Returns MAIN_SUCCESS on success, MAIN_FAILURE on failure.
  */
 int main(void)
 {

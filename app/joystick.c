@@ -37,7 +37,7 @@ float angle, dx, dy;
 GenericCallback button_callback = NULL;
 
 /* BUTTON_RELEASE, BUTTON_PRESS */
-volatile uint8_t button_state = 0;
+volatile uint8_t button_state = BUTTON_RELEASE;
 
 /* Counter */
 volatile uint32_t debounce_timer = 0;
@@ -61,7 +61,7 @@ volatile uint8_t button_event_pending = 0;
  * @return JOYSTICK_SUCCESS on success or JOYSTICK_FAILURE on failure.
  */
 uint8_t InitJoystick (){
-	uint8_t error = 0;
+	uint8_t error = JOYSTICK_SUCCESS;
 	/* Joystick pins initialisation */
 	BSP_GPIO_pin_config(JOYSTICK_KEY_PORT, JOYSTICK_KEY_PIN, GPIO_MODE_INPUT, GPIO_PULLUP, GPIO_SPEED_FREQ_LOW, GPIO_NO_AF);
 	BSP_ADC_init();

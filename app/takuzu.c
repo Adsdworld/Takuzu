@@ -324,7 +324,7 @@ void TakuzuToMatrix(uint32_t* pixels, uint8_t takuzu[SIZE][SIZE]) {
  *         attempting to modify a fixed cell).
  */
 uint8_t TogglePixel(uint8_t x, uint8_t y) {
-	uint8_t error = 0;
+	uint8_t error = TAKUZU_SUCCESS;
 
 	if (takuzuToSolve[x][y] != EMPTY) {
 	    printf("[TAKUZU][TogglePixel][info][player] Impossible fo modify a fix cell(%u, %u).\n\r", x, y);
@@ -342,11 +342,11 @@ uint8_t TogglePixel(uint8_t x, uint8_t y) {
 	showTakuzu(takuzuGenerated);
 	showTakuzu(takuzuToPlay);
 
-	if (error == 0) {
-	    return TAKUZU_SUCCESS;
+	if (error != TAKUZU_SUCCESS) {
+	    return TAKUZU_FAILURE;
 	}
 
-	return TAKUZU_FAILURE;
+	return TAKUZU_SUCCESS;
 }
 
 /**
