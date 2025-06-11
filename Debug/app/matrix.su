@@ -1,8 +1,8 @@
 matrix.c:51:9:InitMatrix	8	static
 matrix.c:62:8:GetPixelX	0	static
 matrix.c:71:8:GetPixelY	0	static
-matrix.c:85:9:SetPixelX	8	static
-matrix.c:107:9:SetPixelY	8	static
-matrix.c:125:11:GetMatrixPixels	0	static
+matrix.c:84:9:SetPixelX	8	static
+matrix.c:106:9:SetPixelY	8	static
+matrix.c:124:11:GetMatrixPixels	0	static
 matrix.c:24:9:MovePixel	8	static
-matrix.c:134:9:SetMatrixPixels	8	static
+matrix.c:133:9:SetMatrixPixels	8	static

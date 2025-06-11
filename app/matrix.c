@@ -72,7 +72,6 @@ int8_t GetPixelY(){
 	return matrix_pixel_y;
 }
 
-
 /**
  * @brief Sets the X coordinate of the active pixel.
  *
@@ -143,7 +142,3 @@ uint8_t SetMatrixPixels(uint8_t index, uint32_t color) {
 	pixels[index] = color;
 	return MATRIX_SUCCESS;
 }
-
-
-
-

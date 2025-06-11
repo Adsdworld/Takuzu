@@ -46,7 +46,7 @@ volatile uint32_t debounce_timer = 0;
 volatile uint32_t button_press_duration = 0;
 
 /* JOYSTICK_BUTTON_LONG_PRESS_FLAG_DOWN, JOYSTICK_BUTTON_LONG_PRESS_FLAG_UP : execute button_callback() */
-volatile uint8_t button_event_pending = 0;
+volatile uint8_t button_event_pending = JOYSTICK_BUTTON_LONG_PRESS_FLAG_DOWN;
 
 /**
  * @brief Initializes the joystick hardware.
@@ -99,9 +99,8 @@ void joystick_button_process_ms(void) {
 void DetectButtonAndExecuteCallback() {
 	UpdateJoystickButton();
 
-    /* If button is pressed and debounce has ended */
-    if (joystick_button == GPIO_PIN_RESET && debounce_timer == 0 && button_state == 0) {
-        //printf("[DEBUG] Bouton press (start)\r\n");
+    /* If button is pressed and debounce has ended, we defined button as pullup */
+    if (joystick_button == GPIO_PIN_RESET && debounce_timer == 0 && button_state == BUTTON_RELEASE) {
         button_state = BUTTON_PRESS;
         debounce_timer = JOYSTICK_BUTTON_DEBOUNCE_DELAY_MS;
         button_press_duration = 1;
@@ -109,9 +108,7 @@ void DetectButtonAndExecuteCallback() {
     }
 
     /* If the button is released and it was pressed */
-    if (joystick_button == GPIO_PIN_SET && button_state == 1) {
-        //printf("[DEBUG] Bouton release (end)\r\n");
-
+    if (joystick_button == GPIO_PIN_SET && button_state == BUTTON_PRESS) {
         button_state = BUTTON_RELEASE;
         debounce_timer = JOYSTICK_BUTTON_DEBOUNCE_DELAY_MS;
 
@@ -120,8 +117,6 @@ void DetectButtonAndExecuteCallback() {
          * and trigger the callback function.
          */
         if (button_press_duration >= JOYSTICK_BUTTON_LONG_PRESS_DELAY_MS) {
-            //printf("[DEBUG] Long press, flag up\r\n");
-
             button_event_pending = JOYSTICK_BUTTON_LONG_PRESS_FLAG_UP;
         }
 
@@ -132,7 +127,6 @@ void DetectButtonAndExecuteCallback() {
      * This allows the button press to be processed without blocking the main loop.
      */
     if (button_event_pending == JOYSTICK_BUTTON_LONG_PRESS_FLAG_UP) {
-        //printf("[DEBUG] TogglePixel event !\r\n");
         button_callback();
         button_event_pending = JOYSTICK_BUTTON_LONG_PRESS_FLAG_DOWN;
     }
@@ -218,7 +212,6 @@ void CalculateAngle() {
 float GetAngle() {
 	return angle;
 }
-
 
 /**
  * @brief Updates the X axis value of the joystick.

@@ -94,6 +94,6 @@ int main(void)
 			printf("[MAIN][main][error] Failed to start the game.\r\n");
 			return GAME_FAILURE;
 		}
-		printf("Game Won, Preparring next game !");
+		printf("[MAIN][main][info] Loading a new game.\r\n");
 	}
 }
