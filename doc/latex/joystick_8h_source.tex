@@ -1,0 +1,66 @@
+\doxysection{joystick.\+h}
+\hypertarget{joystick_8h_source}{}\label{joystick_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ JOYSTICK\_H}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ JOYSTICK\_H}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{comment}{/****************************************}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Déclaration\ des\ \#define}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ ****************************************/}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ JOYSTICK\_SUCCESS\ 0}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ JOYSTICK\_FAILURE\ -\/1}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ JOYSTICK\_X\_PIN\ \ \ \ \ \ GPIO\_PIN\_0\ \ }\textcolor{comment}{//\ P0}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ JOYSTICK\_Y\_PIN\ \ \ \ \ \ GPIO\_PIN\_1\ \ }\textcolor{comment}{//\ P1}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ JOYSTICK\_X\_Y\_PORT\ \ \ \ \ \ \ GPIOA\ \ \ }\textcolor{comment}{//\ Port\ data\ X\ Y}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ JOYSTICK\_KEY\_PIN\ \ \ \ GPIO\_PIN\_3\ \ }\textcolor{comment}{//\ P3}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ JOYSTICK\_KEY\_PORT\ \ \ \ \ \ \ GPIOB\ \ \ }\textcolor{comment}{//\ Port\ data\ KEY}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ JOYSTICK\_MIN\ 0}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ JOYSTICK\_MAX\ 4095}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ JOYSTICK\_TOLERANCE\ 600\ }\textcolor{comment}{//\ ADC\ 12\ bits}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ JOYSTICK\_CALIBRATION\ 100}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ JOYSTICK\_BUTTON\_DEBOUNCE\_DELAY\_MS\ 50}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ JOYSTICK\_BUTTON\_LONG\_PRESS\_DELAY\_MS\ 300}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ BUTTON\_PRESS\ 1}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ BUTTON\_RELEASE\ 0}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ JOYSTICK\_BUTTON\_LONG\_PRESS\_FLAG\_UP\ 1}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ JOYSTICK\_BUTTON\_LONG\_PRESS\_FLAG\_DOWN\ 0}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{comment}{/****************************************}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *\ Déclaration\ des\ structures\ de\ données}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ ****************************************/}}
+\DoxyCodeLine{00035\ \textcolor{keyword}{typedef}\ void\ (*GenericCallback)(void);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{comment}{/****************************************}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ *\ Déclaration\ des\ fonctions}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ ****************************************/}}
+\DoxyCodeLine{00041\ \textcolor{keyword}{extern}\ uint8\_t\ \mbox{\hyperlink{joystick_8c_a3b32fc40654fd3fb1aa9e37d9ef6aa19}{InitJoystick}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00042\ \textcolor{keyword}{extern}\ uint8\_t\ \mbox{\hyperlink{joystick_8c_a0b31bcbf26190fc092f5d0314e6589e3}{Calibrate}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00043\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{joystick_8c_ad2ae76fc82a279d865cc6722dcc856cb}{CalculateAngle}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00044\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{joystick_8c_a4ee02ef759376506b50c09a08be680f8}{UpdateJoystickX}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00045\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{joystick_8c_a2d6a3714464330295543e0d11fb8292d}{UpdateJoystickY}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00046\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{joystick_8c_a3fa86efe0db00fb10e3e7d2a26ab38b1}{UpdateJoystickButton}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00047\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{joystick_8c_ac035654a4e4bbb753714e29c997f1645}{DetectButtonAndExecuteCallback}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00048\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{joystick_8c_a01c3dd7843e1374f0b46e0222363e5d8}{joystick\_button\_process\_ms}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00049\ \textcolor{keyword}{extern}\ uint16\_t\ \mbox{\hyperlink{joystick_8c_afd4da2f4b6838dc185834604c75de00f}{GetJoystickX}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00050\ \textcolor{keyword}{extern}\ uint16\_t\ \mbox{\hyperlink{joystick_8c_af8947e558519f42e76d8b152d91a8b4e}{GetJoystickY}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00051\ \textcolor{keyword}{extern}\ uint16\_t\ \mbox{\hyperlink{joystick_8c_a939c3aaab35fbe974a8a815e94a28f2e}{GetJoystickXCalib}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00052\ \textcolor{keyword}{extern}\ uint16\_t\ \mbox{\hyperlink{joystick_8c_af92b051f11726db9225b641dd332c4d8}{GetJoystickYCalib}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00053\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{joystick_8c_a7e75c2b27801e7c7aa6e1bfcd0286736}{GetJoystickAllowMove}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00054\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{joystick_8c_a347d2ce7aac434272036a6079c5ff007}{SetJoystickAllowMove}}(\textcolor{keywordtype}{bool});}
+\DoxyCodeLine{00055\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{joystick_8c_a998c2758dd2bcdd000fd0e7dac53445c}{GetAngle}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00056\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{joystick_8c_a4301cb3e86291efb3a1dd4f3a11878e7}{RunButtonCallback}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00057\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{joystick_8c_a386f59dd1eec13f0f74511a6c1c7a1cf}{SetButtonCallback}}(GenericCallback);}
+\DoxyCodeLine{00058\ \textcolor{keyword}{extern}\ uint8\_t\ \mbox{\hyperlink{joystick_8c_ae5dc3d56eb38404c6a80f627025d8b71}{GetButtonState}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ JOYSTICK\_H}}
+
+\end{DoxyCode}

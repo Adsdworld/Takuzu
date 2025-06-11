@@ -1,0 +1,65 @@
+\doxysection{main.\+c File Reference}
+\hypertarget{main_8c}{}\label{main_8c}\index{main.c@{main.c}}
+
+
+Main file of the project for Nucleo STM32\+G431\+KB board.  
+
+
+{\ttfamily \#include "{}config.\+h"{}}\newline
+{\ttfamily \#include "{}stm32g4\+\_\+sys.\+h"{}}\newline
+{\ttfamily \#include "{}stm32g4\+\_\+systick.\+h"{}}\newline
+{\ttfamily \#include "{}stm32g4\+\_\+gpio.\+h"{}}\newline
+{\ttfamily \#include "{}stm32g4\+\_\+uart.\+h"{}}\newline
+{\ttfamily \#include "{}stm32g4\+\_\+utils.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include "{}game.\+h"{}}\newline
+{\ttfamily \#include "{}joystick.\+h"{}}\newline
+{\ttfamily \#include "{}matrix.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{main_8c_a7257ce035e99a0074a8dabd60d519866}\label{main_8c_a7257ce035e99a0074a8dabd60d519866} 
+\#define {\bfseries MAIN\+\_\+\+SUCCESS}~0
+\item 
+\Hypertarget{main_8c_a9ee7fdc767e0f3047c61750a1974588b}\label{main_8c_a9ee7fdc767e0f3047c61750a1974588b} 
+\#define {\bfseries MAIN\+\_\+\+FAILURE}~-\/1
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\begin{DoxyCompactList}\small\item\em Main entry point of the application. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main file of the project for Nucleo STM32\+G431\+KB board. 
+
+\begin{DoxyAuthor}{Author}
+Arthur de Sallier Dupin 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2025-\/04-\/14 
+\end{DoxyDate}
+
+
+\label{doc-func-members}
+\Hypertarget{main_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main entry point of the application. 
+
+Initializes all hardware peripherals (GPIO, UART, Joystick, LED Matrix) and starts the game loop.
+
+\begin{DoxyReturn}{Returns}
+int Returns MAIN\+\_\+\+SUCCESS on success, MAIN\+\_\+\+FAILURE on failure. 
+\end{DoxyReturn}

@@ -1,0 +1,114 @@
+\doxysection{game.\+c File Reference}
+\hypertarget{game_8c}{}\label{game_8c}\index{game.c@{game.c}}
+
+
+Game logic for takuzu.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include "{}stm32g4\+\_\+adc.\+h"{}}\newline
+{\ttfamily \#include "{}stm32g4\+\_\+systick.\+h"{}}\newline
+{\ttfamily \#include "{}game.\+h"{}}\newline
+{\ttfamily \#include "{}takuzu.\+h"{}}\newline
+{\ttfamily \#include "{}joystick.\+h"{}}\newline
+{\ttfamily \#include "{}matrix.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{game_8c_a9ff1d6478856b48bc8e5a56fbc54bae3}{Init\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Initialize the game, configure callbacks, and prepare the game environment. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game_8c_aa8ecf1629c54f989768ccfecd15f13c9}{Make\+Move}} ()
+\begin{DoxyCompactList}\small\item\em Make a move on the matrix and temporarily disable movement. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game_8c_a16bfbec87ac2a042115c357adeb7b184}{Main\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Main game loop, handles joystick input and pixel movement. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game_8c_a28b06b89ad80a380106a17dc2992b555}{End\+Game}} ()
+\begin{DoxyCompactList}\small\item\em End the game and release associated resources. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{game_8c_aa67203172fa18eef87475106a30adbbb}{Start\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Start the game by initializing it and running the main game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Game logic for takuzu. 
+
+\begin{DoxyAuthor}{Author}
+Arthur de Sallier Dupin 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+2 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2025-\/05-\/14 
+\end{DoxyDate}
+
+
+\label{doc-func-members}
+\Hypertarget{game_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{game_8c_a28b06b89ad80a380106a17dc2992b555}\index{game.c@{game.c}!EndGame@{EndGame}}
+\index{EndGame@{EndGame}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{EndGame()}{EndGame()}}
+{\footnotesize\ttfamily \label{game_8c_a28b06b89ad80a380106a17dc2992b555} 
+void End\+Game (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+End the game and release associated resources. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{game_8c_a9ff1d6478856b48bc8e5a56fbc54bae3}\index{game.c@{game.c}!InitGame@{InitGame}}
+\index{InitGame@{InitGame}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{InitGame()}{InitGame()}}
+{\footnotesize\ttfamily \label{game_8c_a9ff1d6478856b48bc8e5a56fbc54bae3} 
+uint8\+\_\+t Init\+Game (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initialize the game, configure callbacks, and prepare the game environment. 
+
+\begin{DoxyReturn}{Returns}
+GAME\+\_\+\+SUCCESS on success, GAME\+\_\+\+FAILURE on failure. 
+\end{DoxyReturn}
+\Hypertarget{game_8c_a16bfbec87ac2a042115c357adeb7b184}\index{game.c@{game.c}!MainGame@{MainGame}}
+\index{MainGame@{MainGame}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{MainGame()}{MainGame()}}
+{\footnotesize\ttfamily \label{game_8c_a16bfbec87ac2a042115c357adeb7b184} 
+void Main\+Game (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main game loop, handles joystick input and pixel movement. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{game_8c_aa8ecf1629c54f989768ccfecd15f13c9}\index{game.c@{game.c}!MakeMove@{MakeMove}}
+\index{MakeMove@{MakeMove}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{MakeMove()}{MakeMove()}}
+{\footnotesize\ttfamily \label{game_8c_aa8ecf1629c54f989768ccfecd15f13c9} 
+void Make\+Move (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Make a move on the matrix and temporarily disable movement. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{game_8c_aa67203172fa18eef87475106a30adbbb}\index{game.c@{game.c}!StartGame@{StartGame}}
+\index{StartGame@{StartGame}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{StartGame()}{StartGame()}}
+{\footnotesize\ttfamily \label{game_8c_aa67203172fa18eef87475106a30adbbb} 
+uint8\+\_\+t Start\+Game (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Start the game by initializing it and running the main game loop. 
+
+\begin{DoxyReturn}{Returns}
+GAME\+\_\+\+SUCCESS on success, GAME\+\_\+\+FAILURE on failure. 
+\end{DoxyReturn}

@@ -1,0 +1,473 @@
+\doxysection{joystick.\+c File Reference}
+\hypertarget{joystick_8c}{}\label{joystick_8c}\index{joystick.c@{joystick.c}}
+
+
+Joystick module, represent the joystick and functions to interact with it.  
+
+
+{\ttfamily \#include "{}config.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include "{}takuzu.\+h"{}}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include "{}stm32g4\+\_\+sys.\+h"{}}\newline
+{\ttfamily \#include "{}stm32g4\+\_\+systick.\+h"{}}\newline
+{\ttfamily \#include "{}stm32g4\+\_\+gpio.\+h"{}}\newline
+{\ttfamily \#include "{}stm32g4\+\_\+uart.\+h"{}}\newline
+{\ttfamily \#include "{}stm32g4\+\_\+utils.\+h"{}}\newline
+{\ttfamily \#include "{}stm32g4\+\_\+adc.\+h"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include "{}WS2812/stm32g4\+\_\+ws2812.\+h"{}}\newline
+{\ttfamily \#include "{}joystick.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{joystick_8c_a3b32fc40654fd3fb1aa9e37d9ef6aa19}{Init\+Joystick}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the joystick hardware. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{joystick_8c_a01c3dd7843e1374f0b46e0222363e5d8}{joystick\+\_\+button\+\_\+process\+\_\+ms}} (void)
+\begin{DoxyCompactList}\small\item\em Processes joystick button events every millisecond. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{joystick_8c_ac035654a4e4bbb753714e29c997f1645}{Detect\+Button\+And\+Execute\+Callback}} ()
+\begin{DoxyCompactList}\small\item\em Detects joystick button presses and executes the associated callback. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{joystick_8c_a0b31bcbf26190fc092f5d0314e6589e3}{Calibrate}} ()
+\begin{DoxyCompactList}\small\item\em Calibrates the joystick\textquotesingle{}s neutral position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{joystick_8c_ab5d46ff94ae76d8bb30b833e9a31c07a}{Joystick\+Display}} ()
+\begin{DoxyCompactList}\small\item\em Displays the current raw state of the joystick. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{joystick_8c_ad2ae76fc82a279d865cc6722dcc856cb}{Calculate\+Angle}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the angle of the joystick from the calibrated center position. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{joystick_8c_a998c2758dd2bcdd000fd0e7dac53445c}{Get\+Angle}} ()
+\begin{DoxyCompactList}\small\item\em Gets the current angle of the joystick. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{joystick_8c_a4ee02ef759376506b50c09a08be680f8}{Update\+JoystickX}} ()
+\begin{DoxyCompactList}\small\item\em Updates the X axis value of the joystick. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{joystick_8c_a2d6a3714464330295543e0d11fb8292d}{Update\+JoystickY}} ()
+\begin{DoxyCompactList}\small\item\em Updates the Y axis value of the joystick. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{joystick_8c_a3fa86efe0db00fb10e3e7d2a26ab38b1}{Update\+Joystick\+Button}} ()
+\begin{DoxyCompactList}\small\item\em Updates the joystick button state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{joystick_8c_a4b68dcc62fbf52c123cd4d5e77811620}{Set\+Joystick\+XCalib}} (uint16\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Sets the calibrated X value of the joystick. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{joystick_8c_ab8ecf24cebd6c46bff448a3c6488a308}{Set\+Joystick\+YCalib}} (uint16\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Sets the calibrated Y value of the joystick. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{joystick_8c_a205cc294efedaff2ee1bfffcdd8f076f}{Set\+JoystickX}} (uint16\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Sets the current X position of the joystick. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{joystick_8c_a05c1bdae17fd6b15388efad43ac778f2}{Set\+JoystickY}} (uint16\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Sets the current Y position of the joystick. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{joystick_8c_a939c3aaab35fbe974a8a815e94a28f2e}{Get\+Joystick\+XCalib}} (void)
+\begin{DoxyCompactList}\small\item\em Gets the calibrated X value of the joystick. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{joystick_8c_af92b051f11726db9225b641dd332c4d8}{Get\+Joystick\+YCalib}} (void)
+\begin{DoxyCompactList}\small\item\em Gets the calibrated Y value of the joystick. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{joystick_8c_afd4da2f4b6838dc185834604c75de00f}{Get\+JoystickX}} (void)
+\begin{DoxyCompactList}\small\item\em Gets the current X position of the joystick. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{joystick_8c_af8947e558519f42e76d8b152d91a8b4e}{Get\+JoystickY}} (void)
+\begin{DoxyCompactList}\small\item\em Gets the current Y position of the joystick. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{joystick_8c_a7e75c2b27801e7c7aa6e1bfcd0286736}{Get\+Joystick\+Allow\+Move}} ()
+\begin{DoxyCompactList}\small\item\em Gets if a move is allowed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{joystick_8c_a347d2ce7aac434272036a6079c5ff007}{Set\+Joystick\+Allow\+Move}} (bool allow\+\_\+move)
+\begin{DoxyCompactList}\small\item\em Sets if a move is allowed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{joystick_8c_a4301cb3e86291efb3a1dd4f3a11878e7}{Run\+Button\+Callback}} (void)
+\begin{DoxyCompactList}\small\item\em Run the callback of the button. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{joystick_8c_a386f59dd1eec13f0f74511a6c1c7a1cf}{Set\+Button\+Callback}} (Generic\+Callback callback)
+\begin{DoxyCompactList}\small\item\em Sets the callback of the button. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{joystick_8c_ae5dc3d56eb38404c6a80f627025d8b71}{Get\+Button\+State}} ()
+\begin{DoxyCompactList}\small\item\em Gets joystick button state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{joystick_8c_ae2a20da91ed5277e1ab91c03d9e980df}\label{joystick_8c_ae2a20da91ed5277e1ab91c03d9e980df} 
+uint16\+\_\+t {\bfseries joystick\+\_\+x\+\_\+calib}
+\item 
+\Hypertarget{joystick_8c_ab7cdf7a3adb756de9595f386aace96bc}\label{joystick_8c_ab7cdf7a3adb756de9595f386aace96bc} 
+uint16\+\_\+t {\bfseries joystick\+\_\+y\+\_\+calib}
+\item 
+\Hypertarget{joystick_8c_afafa892ad358ada6729afa95376dcbf6}\label{joystick_8c_afafa892ad358ada6729afa95376dcbf6} 
+uint16\+\_\+t {\bfseries joystick\+\_\+x}
+\item 
+\Hypertarget{joystick_8c_ad47990b25ef9a484d85328cb897a96e1}\label{joystick_8c_ad47990b25ef9a484d85328cb897a96e1} 
+uint16\+\_\+t {\bfseries joystick\+\_\+y}
+\item 
+\Hypertarget{joystick_8c_a270b537dfb9451615725adc3597df917}\label{joystick_8c_a270b537dfb9451615725adc3597df917} 
+GPIO\+\_\+\+Pin\+State {\bfseries joystick\+\_\+button}
+\item 
+\Hypertarget{joystick_8c_ae98a8223fd56b9a3dddd25bb013fddeb}\label{joystick_8c_ae98a8223fd56b9a3dddd25bb013fddeb} 
+bool {\bfseries joystick\+\_\+allow\+\_\+move} = false
+\item 
+\Hypertarget{joystick_8c_ab8ef1bf8a70cc07c6d55823c390a7e76}\label{joystick_8c_ab8ef1bf8a70cc07c6d55823c390a7e76} 
+float {\bfseries angle}
+\item 
+\Hypertarget{joystick_8c_a9eae6c1f38db98ab568f3ed3771a969d}\label{joystick_8c_a9eae6c1f38db98ab568f3ed3771a969d} 
+float {\bfseries dx}
+\item 
+\Hypertarget{joystick_8c_a8f461b6142ce8725218813abb23b06a3}\label{joystick_8c_a8f461b6142ce8725218813abb23b06a3} 
+float {\bfseries dy}
+\item 
+\Hypertarget{joystick_8c_a8f1c3127ea3684df0206526eb41ffd4e}\label{joystick_8c_a8f1c3127ea3684df0206526eb41ffd4e} 
+Generic\+Callback {\bfseries button\+\_\+callback} = NULL
+\item 
+\Hypertarget{joystick_8c_a3098ad6859a45f61b86a2386ce4cc02e}\label{joystick_8c_a3098ad6859a45f61b86a2386ce4cc02e} 
+volatile uint8\+\_\+t {\bfseries button\+\_\+state} = BUTTON\+\_\+\+RELEASE
+\item 
+\Hypertarget{joystick_8c_a1fa1e18e092b7794e3910726db517aac}\label{joystick_8c_a1fa1e18e092b7794e3910726db517aac} 
+volatile uint32\+\_\+t {\bfseries debounce\+\_\+timer} = 0
+\item 
+\Hypertarget{joystick_8c_a9363000ecc145ef2c6469c687b6f9b06}\label{joystick_8c_a9363000ecc145ef2c6469c687b6f9b06} 
+volatile uint32\+\_\+t {\bfseries button\+\_\+press\+\_\+duration} = 0
+\item 
+\Hypertarget{joystick_8c_a958e10d840e7365f0be46a5f559f861f}\label{joystick_8c_a958e10d840e7365f0be46a5f559f861f} 
+volatile uint8\+\_\+t {\bfseries button\+\_\+event\+\_\+pending} = JOYSTICK\+\_\+\+BUTTON\+\_\+\+LONG\+\_\+\+PRESS\+\_\+\+FLAG\+\_\+\+DOWN
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Joystick module, represent the joystick and functions to interact with it. 
+
+\begin{DoxyAuthor}{Author}
+Arthur de Sallier Dupin 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+5 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2025-\/05-\/20 
+\end{DoxyDate}
+
+
+\label{doc-func-members}
+\Hypertarget{joystick_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{joystick_8c_ad2ae76fc82a279d865cc6722dcc856cb}\index{joystick.c@{joystick.c}!CalculateAngle@{CalculateAngle}}
+\index{CalculateAngle@{CalculateAngle}!joystick.c@{joystick.c}}
+\doxysubsubsection{\texorpdfstring{CalculateAngle()}{CalculateAngle()}}
+{\footnotesize\ttfamily \label{joystick_8c_ad2ae76fc82a279d865cc6722dcc856cb} 
+void Calculate\+Angle (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Calculates the angle of the joystick from the calibrated center position. 
+
+This function computes the angle between the joystick\textquotesingle{}s current position and the calibrated center using the {\ttfamily atan2} function. The resulting angle is expressed in degrees. The calculation is based on the difference between the current joystick X and Y positions and their respective calibration values.
+
+\begin{DoxyNote}{Note}
+The angle is calculated using the formula\+: angle = atan2(dy, dx) \texorpdfstring{$\ast$}{*} (180.\+0 / M\+\_\+\+PI) 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{joystick_8c_a0b31bcbf26190fc092f5d0314e6589e3}\index{joystick.c@{joystick.c}!Calibrate@{Calibrate}}
+\index{Calibrate@{Calibrate}!joystick.c@{joystick.c}}
+\doxysubsubsection{\texorpdfstring{Calibrate()}{Calibrate()}}
+{\footnotesize\ttfamily \label{joystick_8c_a0b31bcbf26190fc092f5d0314e6589e3} 
+uint8\+\_\+t Calibrate (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Calibrates the joystick\textquotesingle{}s neutral position. 
+
+This function performs a calibration of the joystick by sampling its X and Y values multiple times, averaging them to determine the neutral (centered) position. This is useful to offset hardware drift or joystick imperfections.
+
+Visual feedback is given through a WS2812 LED matrix, which turns red during calibration and off afterward. Calibration status is logged at each step using printf.
+
+The ADC readings are gathered using the {\ttfamily \doxylink{joystick_8c_a4ee02ef759376506b50c09a08be680f8}{Update\+Joystick\+X()}} and {\ttfamily \doxylink{joystick_8c_a2d6a3714464330295543e0d11fb8292d}{Update\+Joystick\+Y()}} functions.
+
+\begin{DoxyReturn}{Returns}
+JOYSTICK\+\_\+\+SUCCESS on success or JOYSTICK\+\_\+\+FAILURE on failure. 
+\end{DoxyReturn}
+\Hypertarget{joystick_8c_ac035654a4e4bbb753714e29c997f1645}\index{joystick.c@{joystick.c}!DetectButtonAndExecuteCallback@{DetectButtonAndExecuteCallback}}
+\index{DetectButtonAndExecuteCallback@{DetectButtonAndExecuteCallback}!joystick.c@{joystick.c}}
+\doxysubsubsection{\texorpdfstring{DetectButtonAndExecuteCallback()}{DetectButtonAndExecuteCallback()}}
+{\footnotesize\ttfamily \label{joystick_8c_ac035654a4e4bbb753714e29c997f1645} 
+void Detect\+Button\+And\+Execute\+Callback (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Detects joystick button presses and executes the associated callback. 
+
+This function checks the state of the joystick button, manages debouncing, and triggers a callback function when a button press is detected. It distinguishes between short and long presses based on predefined delays. \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+If the button was pressed for a long time, we consider it a long press and trigger the callback function.\Hypertarget{joystick_8c_a998c2758dd2bcdd000fd0e7dac53445c}\index{joystick.c@{joystick.c}!GetAngle@{GetAngle}}
+\index{GetAngle@{GetAngle}!joystick.c@{joystick.c}}
+\doxysubsubsection{\texorpdfstring{GetAngle()}{GetAngle()}}
+{\footnotesize\ttfamily \label{joystick_8c_a998c2758dd2bcdd000fd0e7dac53445c} 
+float Get\+Angle (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the current angle of the joystick. 
+
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\Hypertarget{joystick_8c_ae5dc3d56eb38404c6a80f627025d8b71}\index{joystick.c@{joystick.c}!GetButtonState@{GetButtonState}}
+\index{GetButtonState@{GetButtonState}!joystick.c@{joystick.c}}
+\doxysubsubsection{\texorpdfstring{GetButtonState()}{GetButtonState()}}
+{\footnotesize\ttfamily \label{joystick_8c_ae5dc3d56eb38404c6a80f627025d8b71} 
+uint8\+\_\+t Get\+Button\+State (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Gets joystick button state. 
+
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t 
+\end{DoxyReturn}
+\Hypertarget{joystick_8c_a7e75c2b27801e7c7aa6e1bfcd0286736}\index{joystick.c@{joystick.c}!GetJoystickAllowMove@{GetJoystickAllowMove}}
+\index{GetJoystickAllowMove@{GetJoystickAllowMove}!joystick.c@{joystick.c}}
+\doxysubsubsection{\texorpdfstring{GetJoystickAllowMove()}{GetJoystickAllowMove()}}
+{\footnotesize\ttfamily \label{joystick_8c_a7e75c2b27801e7c7aa6e1bfcd0286736} 
+bool Get\+Joystick\+Allow\+Move (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Gets if a move is allowed. 
+
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\Hypertarget{joystick_8c_afd4da2f4b6838dc185834604c75de00f}\index{joystick.c@{joystick.c}!GetJoystickX@{GetJoystickX}}
+\index{GetJoystickX@{GetJoystickX}!joystick.c@{joystick.c}}
+\doxysubsubsection{\texorpdfstring{GetJoystickX()}{GetJoystickX()}}
+{\footnotesize\ttfamily \label{joystick_8c_afd4da2f4b6838dc185834604c75de00f} 
+uint16\+\_\+t Get\+JoystickX (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the current X position of the joystick. 
+
+\begin{DoxyReturn}{Returns}
+uint16\+\_\+t The current X position. 
+\end{DoxyReturn}
+\Hypertarget{joystick_8c_a939c3aaab35fbe974a8a815e94a28f2e}\index{joystick.c@{joystick.c}!GetJoystickXCalib@{GetJoystickXCalib}}
+\index{GetJoystickXCalib@{GetJoystickXCalib}!joystick.c@{joystick.c}}
+\doxysubsubsection{\texorpdfstring{GetJoystickXCalib()}{GetJoystickXCalib()}}
+{\footnotesize\ttfamily \label{joystick_8c_a939c3aaab35fbe974a8a815e94a28f2e} 
+uint16\+\_\+t Get\+Joystick\+XCalib (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the calibrated X value of the joystick. 
+
+\begin{DoxyReturn}{Returns}
+uint16\+\_\+t The calibrated X value. 
+\end{DoxyReturn}
+\Hypertarget{joystick_8c_af8947e558519f42e76d8b152d91a8b4e}\index{joystick.c@{joystick.c}!GetJoystickY@{GetJoystickY}}
+\index{GetJoystickY@{GetJoystickY}!joystick.c@{joystick.c}}
+\doxysubsubsection{\texorpdfstring{GetJoystickY()}{GetJoystickY()}}
+{\footnotesize\ttfamily \label{joystick_8c_af8947e558519f42e76d8b152d91a8b4e} 
+uint16\+\_\+t Get\+JoystickY (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the current Y position of the joystick. 
+
+\begin{DoxyReturn}{Returns}
+uint16\+\_\+t The current Y position. 
+\end{DoxyReturn}
+\Hypertarget{joystick_8c_af92b051f11726db9225b641dd332c4d8}\index{joystick.c@{joystick.c}!GetJoystickYCalib@{GetJoystickYCalib}}
+\index{GetJoystickYCalib@{GetJoystickYCalib}!joystick.c@{joystick.c}}
+\doxysubsubsection{\texorpdfstring{GetJoystickYCalib()}{GetJoystickYCalib()}}
+{\footnotesize\ttfamily \label{joystick_8c_af92b051f11726db9225b641dd332c4d8} 
+uint16\+\_\+t Get\+Joystick\+YCalib (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the calibrated Y value of the joystick. 
+
+\begin{DoxyReturn}{Returns}
+uint16\+\_\+t The calibrated Y value. 
+\end{DoxyReturn}
+\Hypertarget{joystick_8c_a3b32fc40654fd3fb1aa9e37d9ef6aa19}\index{joystick.c@{joystick.c}!InitJoystick@{InitJoystick}}
+\index{InitJoystick@{InitJoystick}!joystick.c@{joystick.c}}
+\doxysubsubsection{\texorpdfstring{InitJoystick()}{InitJoystick()}}
+{\footnotesize\ttfamily \label{joystick_8c_a3b32fc40654fd3fb1aa9e37d9ef6aa19} 
+uint8\+\_\+t Init\+Joystick (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the joystick hardware. 
+
+This function configures the GPIO pins used by the joystick\+:
+\begin{DoxyItemize}
+\item The joystick button (digital input with pull-\/up)
+\item The X and Y axes (analog inputs without pull-\/up/pull-\/down)
+\end{DoxyItemize}
+
+It also initializes the ADC module required for reading analog joystick values, and performs a calibration routine.
+
+\begin{DoxyReturn}{Returns}
+JOYSTICK\+\_\+\+SUCCESS on success or JOYSTICK\+\_\+\+FAILURE on failure. 
+\end{DoxyReturn}
+\Hypertarget{joystick_8c_a01c3dd7843e1374f0b46e0222363e5d8}\index{joystick.c@{joystick.c}!joystick\_button\_process\_ms@{joystick\_button\_process\_ms}}
+\index{joystick\_button\_process\_ms@{joystick\_button\_process\_ms}!joystick.c@{joystick.c}}
+\doxysubsubsection{\texorpdfstring{joystick\_button\_process\_ms()}{joystick\_button\_process\_ms()}}
+{\footnotesize\ttfamily \label{joystick_8c_a01c3dd7843e1374f0b46e0222363e5d8} 
+void joystick\+\_\+button\+\_\+process\+\_\+ms (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Processes joystick button events every millisecond. 
+
+This function is intended to be called periodically (e.\+g., every millisecond) to handle button debouncing and long press detection. \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{joystick_8c_ab5d46ff94ae76d8bb30b833e9a31c07a}\index{joystick.c@{joystick.c}!JoystickDisplay@{JoystickDisplay}}
+\index{JoystickDisplay@{JoystickDisplay}!joystick.c@{joystick.c}}
+\doxysubsubsection{\texorpdfstring{JoystickDisplay()}{JoystickDisplay()}}
+{\footnotesize\ttfamily \label{joystick_8c_ab5d46ff94ae76d8bb30b833e9a31c07a} 
+void Joystick\+Display (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Displays the current raw state of the joystick. 
+
+This function prints the current digital state of the joystick button and the analog values of the X and Y axes to the UART console.
+
+It is useful for debugging and verifying that the joystick hardware and ADC are working correctly. \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{joystick_8c_a4301cb3e86291efb3a1dd4f3a11878e7}\index{joystick.c@{joystick.c}!RunButtonCallback@{RunButtonCallback}}
+\index{RunButtonCallback@{RunButtonCallback}!joystick.c@{joystick.c}}
+\doxysubsubsection{\texorpdfstring{RunButtonCallback()}{RunButtonCallback()}}
+{\footnotesize\ttfamily \label{joystick_8c_a4301cb3e86291efb3a1dd4f3a11878e7} 
+void Run\+Button\+Callback (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Run the callback of the button. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{joystick_8c_a386f59dd1eec13f0f74511a6c1c7a1cf}\index{joystick.c@{joystick.c}!SetButtonCallback@{SetButtonCallback}}
+\index{SetButtonCallback@{SetButtonCallback}!joystick.c@{joystick.c}}
+\doxysubsubsection{\texorpdfstring{SetButtonCallback()}{SetButtonCallback()}}
+{\footnotesize\ttfamily \label{joystick_8c_a386f59dd1eec13f0f74511a6c1c7a1cf} 
+void Set\+Button\+Callback (\begin{DoxyParamCaption}\item[{Generic\+Callback}]{callback}{}\end{DoxyParamCaption})}
+
+
+
+Sets the callback of the button. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Generic\+Callback} & callback. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\Hypertarget{joystick_8c_a347d2ce7aac434272036a6079c5ff007}\index{joystick.c@{joystick.c}!SetJoystickAllowMove@{SetJoystickAllowMove}}
+\index{SetJoystickAllowMove@{SetJoystickAllowMove}!joystick.c@{joystick.c}}
+\doxysubsubsection{\texorpdfstring{SetJoystickAllowMove()}{SetJoystickAllowMove()}}
+{\footnotesize\ttfamily \label{joystick_8c_a347d2ce7aac434272036a6079c5ff007} 
+void Set\+Joystick\+Allow\+Move (\begin{DoxyParamCaption}\item[{bool}]{allow\+\_\+move}{}\end{DoxyParamCaption})}
+
+
+
+Sets if a move is allowed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bool} & allow move. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{joystick_8c_a205cc294efedaff2ee1bfffcdd8f076f}\index{joystick.c@{joystick.c}!SetJoystickX@{SetJoystickX}}
+\index{SetJoystickX@{SetJoystickX}!joystick.c@{joystick.c}}
+\doxysubsubsection{\texorpdfstring{SetJoystickX()}{SetJoystickX()}}
+{\footnotesize\ttfamily \label{joystick_8c_a205cc294efedaff2ee1bfffcdd8f076f} 
+void Set\+JoystickX (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Sets the current X position of the joystick. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The new X position. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{joystick_8c_a4b68dcc62fbf52c123cd4d5e77811620}\index{joystick.c@{joystick.c}!SetJoystickXCalib@{SetJoystickXCalib}}
+\index{SetJoystickXCalib@{SetJoystickXCalib}!joystick.c@{joystick.c}}
+\doxysubsubsection{\texorpdfstring{SetJoystickXCalib()}{SetJoystickXCalib()}}
+{\footnotesize\ttfamily \label{joystick_8c_a4b68dcc62fbf52c123cd4d5e77811620} 
+void Set\+Joystick\+XCalib (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Sets the calibrated X value of the joystick. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The new calibrated X value. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{joystick_8c_a05c1bdae17fd6b15388efad43ac778f2}\index{joystick.c@{joystick.c}!SetJoystickY@{SetJoystickY}}
+\index{SetJoystickY@{SetJoystickY}!joystick.c@{joystick.c}}
+\doxysubsubsection{\texorpdfstring{SetJoystickY()}{SetJoystickY()}}
+{\footnotesize\ttfamily \label{joystick_8c_a05c1bdae17fd6b15388efad43ac778f2} 
+void Set\+JoystickY (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Sets the current Y position of the joystick. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The new Y position. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{joystick_8c_ab8ecf24cebd6c46bff448a3c6488a308}\index{joystick.c@{joystick.c}!SetJoystickYCalib@{SetJoystickYCalib}}
+\index{SetJoystickYCalib@{SetJoystickYCalib}!joystick.c@{joystick.c}}
+\doxysubsubsection{\texorpdfstring{SetJoystickYCalib()}{SetJoystickYCalib()}}
+{\footnotesize\ttfamily \label{joystick_8c_ab8ecf24cebd6c46bff448a3c6488a308} 
+void Set\+Joystick\+YCalib (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Sets the calibrated Y value of the joystick. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The new calibrated Y value. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{joystick_8c_a3fa86efe0db00fb10e3e7d2a26ab38b1}\index{joystick.c@{joystick.c}!UpdateJoystickButton@{UpdateJoystickButton}}
+\index{UpdateJoystickButton@{UpdateJoystickButton}!joystick.c@{joystick.c}}
+\doxysubsubsection{\texorpdfstring{UpdateJoystickButton()}{UpdateJoystickButton()}}
+{\footnotesize\ttfamily \label{joystick_8c_a3fa86efe0db00fb10e3e7d2a26ab38b1} 
+void Update\+Joystick\+Button (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Updates the joystick button state. 
+
+This function reads the current state of the joystick button (pressed or not) using {\ttfamily HAL\+\_\+\+GPIO\+\_\+\+Read\+Pin()} and updates the {\ttfamily joystick\+\_\+button} variable.
+
+\begin{DoxyNote}{Note}
+{\ttfamily GPIO\+\_\+\+PIN\+\_\+\+RESET} (LOW), {\ttfamily GPIO\+\_\+\+PIN\+\_\+\+SET} (HIGH). 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{joystick_8c_a4ee02ef759376506b50c09a08be680f8}\index{joystick.c@{joystick.c}!UpdateJoystickX@{UpdateJoystickX}}
+\index{UpdateJoystickX@{UpdateJoystickX}!joystick.c@{joystick.c}}
+\doxysubsubsection{\texorpdfstring{UpdateJoystickX()}{UpdateJoystickX()}}
+{\footnotesize\ttfamily \label{joystick_8c_a4ee02ef759376506b50c09a08be680f8} 
+void Update\+JoystickX (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Updates the X axis value of the joystick. 
+
+This function retrieves the current ADC value for the joystick\textquotesingle{}s X axis using {\ttfamily BSP\+\_\+\+ADC\+\_\+get\+Value()} and updates the {\ttfamily joystick\+\_\+x} variable. \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{joystick_8c_a2d6a3714464330295543e0d11fb8292d}\index{joystick.c@{joystick.c}!UpdateJoystickY@{UpdateJoystickY}}
+\index{UpdateJoystickY@{UpdateJoystickY}!joystick.c@{joystick.c}}
+\doxysubsubsection{\texorpdfstring{UpdateJoystickY()}{UpdateJoystickY()}}
+{\footnotesize\ttfamily \label{joystick_8c_a2d6a3714464330295543e0d11fb8292d} 
+void Update\+JoystickY (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Updates the Y axis value of the joystick. 
+
+This function retrieves the current ADC value for the joystick\textquotesingle{}s Y axis using {\ttfamily BSP\+\_\+\+ADC\+\_\+get\+Value()} and updates the {\ttfamily joystick\+\_\+y} variable. return void 

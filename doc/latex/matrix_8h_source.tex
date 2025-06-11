@@ -1,0 +1,43 @@
+\doxysection{matrix.\+h}
+\hypertarget{matrix_8h_source}{}\label{matrix_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MATRICE\_H}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ MATRICE\_H}}
+\DoxyCodeLine{00004\ \textcolor{comment}{/****************************************}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Déclaration\ des\ \#include}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ ****************************************/}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{comment}{/****************************************}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ Déclaration\ des\ \#define}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ ****************************************/}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ MATRIX\_SUCCESS\ 0}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ MATRIX\_FAILURE\ -\/1}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{/*\ Matrix\ size\ 8x8\ */}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ MATRIX\_SIZE\ 64}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{/*\ Colors\ */}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ CURSOR\_COLOR\ \ \ \ 0x001000}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ TAKUZU\_1\_COLOR\ \ 0x000010}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ TAKUZU\_0\_COLOR\ \ 0x100000}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{comment}{/****************************************}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ *\ Déclaration\ des\ fonctions}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ ****************************************/}}
+\DoxyCodeLine{00039\ \textcolor{keyword}{extern}\ uint8\_t\ \mbox{\hyperlink{matrix_8c_a1fe0b429e2bda64bfc788e5046110346}{InitMatrix}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00040\ \textcolor{keyword}{extern}\ uint8\_t\ \mbox{\hyperlink{matrix_8c_a220fe51e38d4282320c4bdd096fe8664}{MovePixel}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00041\ \textcolor{keyword}{extern}\ int8\_t\ \mbox{\hyperlink{matrix_8c_aa056c9f0fed80ba5a942dd6c18a9334e}{GetPixelX}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00042\ \textcolor{keyword}{extern}\ int8\_t\ \mbox{\hyperlink{matrix_8c_af31c7cdb75a8dced36528f8f82cb6c88}{GetPixelY}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00043\ \textcolor{keyword}{extern}\ uint8\_t\ \mbox{\hyperlink{matrix_8c_aabeaadb60f46d062a8088f352ffe319e}{SetPixelX}}(int8\_t\ y);}
+\DoxyCodeLine{00044\ \textcolor{keyword}{extern}\ uint8\_t\ \mbox{\hyperlink{matrix_8c_a06d668bb6d79ae701e3a54faab1a299d}{SetPixelY}}(int8\_t\ y);}
+\DoxyCodeLine{00045\ \textcolor{keyword}{extern}\ uint8\_t\ \mbox{\hyperlink{matrix_8c_a1fe0b429e2bda64bfc788e5046110346}{InitMatrix}}();}
+\DoxyCodeLine{00046\ \textcolor{keyword}{extern}\ uint32\_t*\ \mbox{\hyperlink{matrix_8c_a95b8fd4839c07aae2f7b4bf650bbedc9}{GetMatrixPixels}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00047\ \textcolor{keyword}{extern}\ uint8\_t\ \mbox{\hyperlink{matrix_8c_a52ff9d9ff2c56b7e97d936b060e582c8}{SetMatrixPixels}}(uint8\_t,\ uint32\_t);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MATRICE\_H}}
+
+\end{DoxyCode}

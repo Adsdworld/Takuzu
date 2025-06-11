@@ -1,3 +1,10 @@
+/**
+ * @file joystick.c
+ * @author Arthur de Sallier Dupin
+ * @brief Joystick module, represent the joystick and functions to interact with it.
+ * @version 1.5
+ * @date 2025-05-20
+ */
 #include "config.h"
 #include <stdio.h>
 #include <stdlib.h>

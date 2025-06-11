@@ -1,3 +1,10 @@
+/**
+ * @file game.c
+ * @author Arthur de Sallier Dupin
+ * @brief Game logic for takuzu.
+ * @version 1.2
+ * @date 2025-05-14
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>

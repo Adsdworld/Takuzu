@@ -1,3 +1,10 @@
+/**
+ * @file takuzu.c
+ * @author Martin Duverger
+ * @brief Takuzu module, include takuzu generation, grid management and functions to interact with it.
+ * @version 1.3
+ * @date 2025-04-28
+ */
 #include <matrix.h>
 #include <stdio.h>
 #include <stdlib.h>

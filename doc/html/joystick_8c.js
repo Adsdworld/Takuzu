@@ -1,0 +1,26 @@
+var joystick_8c =
+[
+    [ "CalculateAngle", "joystick_8c.html#ad2ae76fc82a279d865cc6722dcc856cb", null ],
+    [ "Calibrate", "joystick_8c.html#a0b31bcbf26190fc092f5d0314e6589e3", null ],
+    [ "DetectButtonAndExecuteCallback", "joystick_8c.html#ac035654a4e4bbb753714e29c997f1645", null ],
+    [ "GetAngle", "joystick_8c.html#a998c2758dd2bcdd000fd0e7dac53445c", null ],
+    [ "GetButtonState", "joystick_8c.html#ae5dc3d56eb38404c6a80f627025d8b71", null ],
+    [ "GetJoystickAllowMove", "joystick_8c.html#a7e75c2b27801e7c7aa6e1bfcd0286736", null ],
+    [ "GetJoystickX", "joystick_8c.html#afd4da2f4b6838dc185834604c75de00f", null ],
+    [ "GetJoystickXCalib", "joystick_8c.html#a939c3aaab35fbe974a8a815e94a28f2e", null ],
+    [ "GetJoystickY", "joystick_8c.html#af8947e558519f42e76d8b152d91a8b4e", null ],
+    [ "GetJoystickYCalib", "joystick_8c.html#af92b051f11726db9225b641dd332c4d8", null ],
+    [ "InitJoystick", "joystick_8c.html#a3b32fc40654fd3fb1aa9e37d9ef6aa19", null ],
+    [ "joystick_button_process_ms", "joystick_8c.html#a01c3dd7843e1374f0b46e0222363e5d8", null ],
+    [ "JoystickDisplay", "joystick_8c.html#ab5d46ff94ae76d8bb30b833e9a31c07a", null ],
+    [ "RunButtonCallback", "joystick_8c.html#a4301cb3e86291efb3a1dd4f3a11878e7", null ],
+    [ "SetButtonCallback", "joystick_8c.html#a386f59dd1eec13f0f74511a6c1c7a1cf", null ],
+    [ "SetJoystickAllowMove", "joystick_8c.html#a347d2ce7aac434272036a6079c5ff007", null ],
+    [ "SetJoystickX", "joystick_8c.html#a205cc294efedaff2ee1bfffcdd8f076f", null ],
+    [ "SetJoystickXCalib", "joystick_8c.html#a4b68dcc62fbf52c123cd4d5e77811620", null ],
+    [ "SetJoystickY", "joystick_8c.html#a05c1bdae17fd6b15388efad43ac778f2", null ],
+    [ "SetJoystickYCalib", "joystick_8c.html#ab8ecf24cebd6c46bff448a3c6488a308", null ],
+    [ "UpdateJoystickButton", "joystick_8c.html#a3fa86efe0db00fb10e3e7d2a26ab38b1", null ],
+    [ "UpdateJoystickX", "joystick_8c.html#a4ee02ef759376506b50c09a08be680f8", null ],
+    [ "UpdateJoystickY", "joystick_8c.html#a2d6a3714464330295543e0d11fb8292d", null ]
+];

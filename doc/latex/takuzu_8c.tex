@@ -1,0 +1,375 @@
+\doxysection{takuzu.\+c File Reference}
+\hypertarget{takuzu_8c}{}\label{takuzu_8c}\index{takuzu.c@{takuzu.c}}
+
+
+Takuzu module, include takuzu generation, grid management and functions to interact with it.  
+
+
+{\ttfamily \#include $<$matrix.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include "{}takuzu.\+h"{}}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include "{}WS2812/stm32g4\+\_\+ws2812.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{takuzu_8c_a4496c0565270dc86ff66f235b667bcb4}{reset\+Seed}} ()
+\begin{DoxyCompactList}\small\item\em Resets the random seed for generating Takuzu. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{takuzu_8c_aaf7d31193066d415c30e34fd03c582df}{is\+Time\+Exceeded}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the allowed time for Takuzu generation has been exceeded. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{takuzu_8c_aa076171f8251142e1230fec1ef5e5101}{max2\+On\+Col\+Jusqua\+Ligne}} (uint8\+\_\+t col, uint8\+\_\+t ligne\+Max)
+\begin{DoxyCompactList}\small\item\em Checks if there are no repeated 3 consecutive elements in the column up to the given row. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{takuzu_8c_ad640c2c1385301cbb54341fa0255aa46}{compte\+Et\+Verifie\+Col\+Jusqua\+Ligne}} (uint8\+\_\+t col, uint8\+\_\+t ligne\+Max)
+\begin{DoxyCompactList}\small\item\em Checks that the number of 0\textquotesingle{}s and 1\textquotesingle{}s in the column is not greater than half of the SIZE. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{takuzu_8c_a3b452afa53d31325112973b4ae4c7cf4}{max2\+On\+Line}} (uint8\+\_\+t ligne\mbox{[}SIZE\mbox{]})
+\begin{DoxyCompactList}\small\item\em Checks if there are no repeated 3 consecutive elements in the row. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{takuzu_8c_a38823dc25031e257ecc4295c33562a51}{compte\+Et\+Verifie}} (uint8\+\_\+t ligne\mbox{[}SIZE\mbox{]})
+\begin{DoxyCompactList}\small\item\em Checks that the number of 0\textquotesingle{}s and 1\textquotesingle{}s in the row is not greater than half of the size. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{takuzu_8c_ab7f4fbc7b43fd77a318e484cc2ba9c06}{generate\+Line}} (uint8\+\_\+t row, uint8\+\_\+t col)
+\begin{DoxyCompactList}\small\item\em Generates a valid line of the Takuzu puzzle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{takuzu_8c_a724f5d055e6b787a27a1d448a6726073}{Generate}} ()
+\begin{DoxyCompactList}\small\item\em Generates the Takuzu puzzle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{takuzu_8c_ae21c54143cef9a04da4486bc06e646d1}{show\+Takuzu}} (uint8\+\_\+t takuzu\mbox{[}SIZE\mbox{]}\mbox{[}SIZE\mbox{]})
+\begin{DoxyCompactList}\small\item\em Displays the current Takuzu grid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{takuzu_8c_a739ab2a957c2be50888363f8e4ab029f}{Detect\+Ligne\+Pattern}} (uint8\+\_\+t i, uint8\+\_\+t ligne\mbox{[}$\,$\mbox{]}, uint8\+\_\+t motif\mbox{[}$\,$\mbox{]}, uint8\+\_\+t motif\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Detects and removes patterns from a Takuzu line. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{takuzu_8c_a5d096643aa7de8df5aefbd097507e637}{Cell\+Remover}} ()
+\begin{DoxyCompactList}\small\item\em Removes specific patterns from the Takuzu grid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{takuzu_8c_a9c804979fba793b6fd3c1e08467bd89b}{Takuzu\+To\+Matrix}} (uint32\+\_\+t \texorpdfstring{$\ast$}{*}pixels, uint8\+\_\+t takuzu\mbox{[}SIZE\mbox{]}\mbox{[}SIZE\mbox{]})
+\begin{DoxyCompactList}\small\item\em Converts a Takuzu grid to a pixel array for display. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{takuzu_8c_a214ee94d50d36a640d68d11afec08c11}{Toggle\+Pixel}} (uint8\+\_\+t x, uint8\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em Toggles the value of a specific cell in the Takuzu grid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{takuzu_8c_a06509da044185c1b45efbf6a33f47ab6}{Toggle\+Current\+Pixel}} ()
+\begin{DoxyCompactList}\small\item\em Toggles the value of the current pixel in the Takuzu grid. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{takuzu_8c_a1f713c675ac8cd7f6257f2e7418ecd52}{Compare\+Grids}} (uint8\+\_\+t grid1\mbox{[}SIZE\mbox{]}\mbox{[}SIZE\mbox{]}, uint8\+\_\+t grid2\mbox{[}SIZE\mbox{]}\mbox{[}SIZE\mbox{]})
+\begin{DoxyCompactList}\small\item\em Compares two Takuzu grids to check if they are identical. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{takuzu_8c_a43c0583fc76258fbd24a26af75be03fd}{main\+Takuzu}} ()
+\begin{DoxyCompactList}\small\item\em Main function to generate, display, and modify a Takuzu puzzle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{takuzu_8c_ad29f88c7824a45df029b739015001133}\label{takuzu_8c_ad29f88c7824a45df029b739015001133} 
+uint8\+\_\+t {\bfseries takuzu\+Generated} \mbox{[}SIZE\mbox{]}\mbox{[}SIZE\mbox{]}
+\item 
+\Hypertarget{takuzu_8c_aaf1280cf540e5f956f01f47845dffef0}\label{takuzu_8c_aaf1280cf540e5f956f01f47845dffef0} 
+uint8\+\_\+t {\bfseries takuzu\+To\+Solve} \mbox{[}SIZE\mbox{]}\mbox{[}SIZE\mbox{]}
+\item 
+\Hypertarget{takuzu_8c_adde1ed127292f95f97f12e42e9856c8c}\label{takuzu_8c_adde1ed127292f95f97f12e42e9856c8c} 
+uint8\+\_\+t {\bfseries takuzu\+To\+Play} \mbox{[}SIZE\mbox{]}\mbox{[}SIZE\mbox{]}
+\item 
+\Hypertarget{takuzu_8c_a5a97ecd79d0433240a64f90e92d5292e}\label{takuzu_8c_a5a97ecd79d0433240a64f90e92d5292e} 
+uint32\+\_\+t {\bfseries start\+Date}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Takuzu module, include takuzu generation, grid management and functions to interact with it. 
+
+\begin{DoxyAuthor}{Author}
+Martin Duverger 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+3 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2025-\/04-\/28 
+\end{DoxyDate}
+
+
+\label{doc-func-members}
+\Hypertarget{takuzu_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{takuzu_8c_a5d096643aa7de8df5aefbd097507e637}\index{takuzu.c@{takuzu.c}!CellRemover@{CellRemover}}
+\index{CellRemover@{CellRemover}!takuzu.c@{takuzu.c}}
+\doxysubsubsection{\texorpdfstring{CellRemover()}{CellRemover()}}
+{\footnotesize\ttfamily \label{takuzu_8c_a5d096643aa7de8df5aefbd097507e637} 
+void Cell\+Remover (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Removes specific patterns from the Takuzu grid. 
+
+This function checks for specific patterns (1001, 0110, 101, 010) in each row of the Takuzu grid and removes them by setting the corresponding cells to EMPTY. The function iterates over all rows and applies the {\ttfamily Detect\+Ligne\+Pattern} function for each pattern. \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{takuzu_8c_a1f713c675ac8cd7f6257f2e7418ecd52}\index{takuzu.c@{takuzu.c}!CompareGrids@{CompareGrids}}
+\index{CompareGrids@{CompareGrids}!takuzu.c@{takuzu.c}}
+\doxysubsubsection{\texorpdfstring{CompareGrids()}{CompareGrids()}}
+{\footnotesize\ttfamily \label{takuzu_8c_a1f713c675ac8cd7f6257f2e7418ecd52} 
+uint8\+\_\+t Compare\+Grids (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{grid1}{\mbox{[}\+SIZE\mbox{]}\mbox{[}\+SIZE\mbox{]}, }\item[{uint8\+\_\+t}]{grid2}{\mbox{[}\+SIZE\mbox{]}\mbox{[}\+SIZE\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Compares two Takuzu grids to check if they are identical. 
+
+This function compares two Takuzu grids ({\ttfamily grid1} and {\ttfamily grid2}) to see if they are identical. It compares each corresponding cell in both grids. If any difference is found, the function returns false.
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid1} & The first grid to compare. \\
+\hline
+{\em grid2} & The second grid to compare.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the grids are identical, 0 otherwise. 
+\end{DoxyReturn}
+\Hypertarget{takuzu_8c_a38823dc25031e257ecc4295c33562a51}\index{takuzu.c@{takuzu.c}!compteEtVerifie@{compteEtVerifie}}
+\index{compteEtVerifie@{compteEtVerifie}!takuzu.c@{takuzu.c}}
+\doxysubsubsection{\texorpdfstring{compteEtVerifie()}{compteEtVerifie()}}
+{\footnotesize\ttfamily \label{takuzu_8c_a38823dc25031e257ecc4295c33562a51} 
+bool compte\+Et\+Verifie (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{ligne}{\mbox{[}\+SIZE\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Checks that the number of 0\textquotesingle{}s and 1\textquotesingle{}s in the row is not greater than half of the size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ligne} & The row to check.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the count of 0\textquotesingle{}s and 1\textquotesingle{}s is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{takuzu_8c_ad640c2c1385301cbb54341fa0255aa46}\index{takuzu.c@{takuzu.c}!compteEtVerifieColJusquaLigne@{compteEtVerifieColJusquaLigne}}
+\index{compteEtVerifieColJusquaLigne@{compteEtVerifieColJusquaLigne}!takuzu.c@{takuzu.c}}
+\doxysubsubsection{\texorpdfstring{compteEtVerifieColJusquaLigne()}{compteEtVerifieColJusquaLigne()}}
+{\footnotesize\ttfamily \label{takuzu_8c_ad640c2c1385301cbb54341fa0255aa46} 
+bool compte\+Et\+Verifie\+Col\+Jusqua\+Ligne (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{col}{, }\item[{uint8\+\_\+t}]{ligne\+Max}{}\end{DoxyParamCaption})}
+
+
+
+Checks that the number of 0\textquotesingle{}s and 1\textquotesingle{}s in the column is not greater than half of the SIZE. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em col} & The column index. \\
+\hline
+{\em ligne\+Max} & The row index up to which the check is performed.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the count of 0\textquotesingle{}s and 1\textquotesingle{}s is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{takuzu_8c_a739ab2a957c2be50888363f8e4ab029f}\index{takuzu.c@{takuzu.c}!DetectLignePattern@{DetectLignePattern}}
+\index{DetectLignePattern@{DetectLignePattern}!takuzu.c@{takuzu.c}}
+\doxysubsubsection{\texorpdfstring{DetectLignePattern()}{DetectLignePattern()}}
+{\footnotesize\ttfamily \label{takuzu_8c_a739ab2a957c2be50888363f8e4ab029f} 
+void Detect\+Ligne\+Pattern (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{i}{, }\item[{uint8\+\_\+t}]{ligne}{\mbox{[}$\,$\mbox{]}, }\item[{uint8\+\_\+t}]{motif}{\mbox{[}$\,$\mbox{]}, }\item[{uint8\+\_\+t}]{motif\+\_\+size}{}\end{DoxyParamCaption})}
+
+
+
+Detects and removes patterns from a Takuzu line. 
+
+This function looks for specific patterns (e.\+g., 1001, 0110) in the rows of the puzzle, and removes them by setting the matching cells to EMPTY.
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The row index. \\
+\hline
+{\em ligne} & The line to check for patterns. \\
+\hline
+{\em motif} & The pattern to detect. \\
+\hline
+{\em motif\+\_\+size} & The size of the pattern. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{takuzu_8c_a724f5d055e6b787a27a1d448a6726073}\index{takuzu.c@{takuzu.c}!Generate@{Generate}}
+\index{Generate@{Generate}!takuzu.c@{takuzu.c}}
+\doxysubsubsection{\texorpdfstring{Generate()}{Generate()}}
+{\footnotesize\ttfamily \label{takuzu_8c_a724f5d055e6b787a27a1d448a6726073} 
+void Generate (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Generates the Takuzu puzzle. 
+
+This function initializes the generation of a valid Takuzu puzzle by repeatedly calling the recursive {\ttfamily generate\+Line} function and backtracking when necessary. \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{takuzu_8c_ab7f4fbc7b43fd77a318e484cc2ba9c06}\index{takuzu.c@{takuzu.c}!generateLine@{generateLine}}
+\index{generateLine@{generateLine}!takuzu.c@{takuzu.c}}
+\doxysubsubsection{\texorpdfstring{generateLine()}{generateLine()}}
+{\footnotesize\ttfamily \label{takuzu_8c_ab7f4fbc7b43fd77a318e484cc2ba9c06} 
+bool generate\+Line (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{row}{, }\item[{uint8\+\_\+t}]{col}{}\end{DoxyParamCaption})}
+
+
+
+Generates a valid line of the Takuzu puzzle. 
+
+This recursive function fills a row of the Takuzu puzzle with 0\textquotesingle{}s and 1\textquotesingle{}s, ensuring the rules for valid sequences are met.
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & The row index to fill. \\
+\hline
+{\em col} & The column index to start the filling.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if a valid row is generated, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{takuzu_8c_aaf7d31193066d415c30e34fd03c582df}\index{takuzu.c@{takuzu.c}!isTimeExceeded@{isTimeExceeded}}
+\index{isTimeExceeded@{isTimeExceeded}!takuzu.c@{takuzu.c}}
+\doxysubsubsection{\texorpdfstring{isTimeExceeded()}{isTimeExceeded()}}
+{\footnotesize\ttfamily \label{takuzu_8c_aaf7d31193066d415c30e34fd03c582df} 
+bool is\+Time\+Exceeded (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Checks if the allowed time for Takuzu generation has been exceeded. 
+
+\begin{DoxyReturn}{Returns}
+true if 200ms has passed since the seed was reset, otherwise false. 
+\end{DoxyReturn}
+\Hypertarget{takuzu_8c_a43c0583fc76258fbd24a26af75be03fd}\index{takuzu.c@{takuzu.c}!mainTakuzu@{mainTakuzu}}
+\index{mainTakuzu@{mainTakuzu}!takuzu.c@{takuzu.c}}
+\doxysubsubsection{\texorpdfstring{mainTakuzu()}{mainTakuzu()}}
+{\footnotesize\ttfamily \label{takuzu_8c_a43c0583fc76258fbd24a26af75be03fd} 
+void main\+Takuzu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Main function to generate, display, and modify a Takuzu puzzle. 
+
+This function generates a Takuzu puzzle, displays it, removes specific patterns, and prepares the puzzle for gameplay. It creates a copy of the generated Takuzu puzzle, removes patterns from it, and sets up the initial grid for the player to modify. \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{takuzu_8c_aa076171f8251142e1230fec1ef5e5101}\index{takuzu.c@{takuzu.c}!max2OnColJusquaLigne@{max2OnColJusquaLigne}}
+\index{max2OnColJusquaLigne@{max2OnColJusquaLigne}!takuzu.c@{takuzu.c}}
+\doxysubsubsection{\texorpdfstring{max2OnColJusquaLigne()}{max2OnColJusquaLigne()}}
+{\footnotesize\ttfamily \label{takuzu_8c_aa076171f8251142e1230fec1ef5e5101} 
+bool max2\+On\+Col\+Jusqua\+Ligne (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{col}{, }\item[{uint8\+\_\+t}]{ligne\+Max}{}\end{DoxyParamCaption})}
+
+
+
+Checks if there are no repeated 3 consecutive elements in the column up to the given row. 
+
+This ensures no invalid sequences occur vertically in the Takuzu grid.
+
+
+\begin{DoxyParams}{Parameters}
+{\em col} & The column index. \\
+\hline
+{\em ligne\+Max} & The row index up to which the check is performed.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if no repeated sequences exist, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{takuzu_8c_a3b452afa53d31325112973b4ae4c7cf4}\index{takuzu.c@{takuzu.c}!max2OnLine@{max2OnLine}}
+\index{max2OnLine@{max2OnLine}!takuzu.c@{takuzu.c}}
+\doxysubsubsection{\texorpdfstring{max2OnLine()}{max2OnLine()}}
+{\footnotesize\ttfamily \label{takuzu_8c_a3b452afa53d31325112973b4ae4c7cf4} 
+bool max2\+On\+Line (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{ligne}{\mbox{[}\+SIZE\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Checks if there are no repeated 3 consecutive elements in the row. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ligne} & The row to check.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if no repeated sequences exist, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{takuzu_8c_a4496c0565270dc86ff66f235b667bcb4}\index{takuzu.c@{takuzu.c}!resetSeed@{resetSeed}}
+\index{resetSeed@{resetSeed}!takuzu.c@{takuzu.c}}
+\doxysubsubsection{\texorpdfstring{resetSeed()}{resetSeed()}}
+{\footnotesize\ttfamily \label{takuzu_8c_a4496c0565270dc86ff66f235b667bcb4} 
+void reset\+Seed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Resets the random seed for generating Takuzu. 
+
+This function sets the random seed to the current system tick using {\ttfamily HAL\+\_\+\+Get\+Tick()}, ensuring randomness for Takuzu generation. \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{takuzu_8c_ae21c54143cef9a04da4486bc06e646d1}\index{takuzu.c@{takuzu.c}!showTakuzu@{showTakuzu}}
+\index{showTakuzu@{showTakuzu}!takuzu.c@{takuzu.c}}
+\doxysubsubsection{\texorpdfstring{showTakuzu()}{showTakuzu()}}
+{\footnotesize\ttfamily \label{takuzu_8c_ae21c54143cef9a04da4486bc06e646d1} 
+void show\+Takuzu (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{takuzu}{\mbox{[}\+SIZE\mbox{]}\mbox{[}\+SIZE\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Displays the current Takuzu grid. 
+
+This function prints the Takuzu grid to the console.
+
+
+\begin{DoxyParams}{Parameters}
+{\em takuzu} & The Takuzu grid to display. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{takuzu_8c_a9c804979fba793b6fd3c1e08467bd89b}\index{takuzu.c@{takuzu.c}!TakuzuToMatrix@{TakuzuToMatrix}}
+\index{TakuzuToMatrix@{TakuzuToMatrix}!takuzu.c@{takuzu.c}}
+\doxysubsubsection{\texorpdfstring{TakuzuToMatrix()}{TakuzuToMatrix()}}
+{\footnotesize\ttfamily \label{takuzu_8c_a9c804979fba793b6fd3c1e08467bd89b} 
+void Takuzu\+To\+Matrix (\begin{DoxyParamCaption}\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{pixels}{, }\item[{uint8\+\_\+t}]{takuzu}{\mbox{[}\+SIZE\mbox{]}\mbox{[}\+SIZE\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Converts a Takuzu grid to a pixel array for display. 
+
+This function takes a Takuzu grid and converts it into a pixel array suitable for display on an LED matrix (using WS2812). The function maps each value in the Takuzu grid (0, 1, or EMPTY) to a specific color (light blue for 0, light green for 1, and black for EMPTY).
+
+
+\begin{DoxyParams}{Parameters}
+{\em pixels} & A pointer to the pixel array to store the color values. \\
+\hline
+{\em takuzu} & A 2D array representing the Takuzu grid to be converted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{takuzu_8c_a06509da044185c1b45efbf6a33f47ab6}\index{takuzu.c@{takuzu.c}!ToggleCurrentPixel@{ToggleCurrentPixel}}
+\index{ToggleCurrentPixel@{ToggleCurrentPixel}!takuzu.c@{takuzu.c}}
+\doxysubsubsection{\texorpdfstring{ToggleCurrentPixel()}{ToggleCurrentPixel()}}
+{\footnotesize\ttfamily \label{takuzu_8c_a06509da044185c1b45efbf6a33f47ab6} 
+void Toggle\+Current\+Pixel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Toggles the value of the current pixel in the Takuzu grid. 
+
+This function toggles the value of the pixel at the current position (as defined by {\ttfamily \doxylink{matrix_8c_aa056c9f0fed80ba5a942dd6c18a9334e}{Get\+Pixel\+X()}} and {\ttfamily \doxylink{matrix_8c_af31c7cdb75a8dced36528f8f82cb6c88}{Get\+Pixel\+Y()}}). It calls {\ttfamily Toggle\+Pixel} with the current pixel coordinates.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{takuzu_8c_a214ee94d50d36a640d68d11afec08c11}\index{takuzu.c@{takuzu.c}!TogglePixel@{TogglePixel}}
+\index{TogglePixel@{TogglePixel}!takuzu.c@{takuzu.c}}
+\doxysubsubsection{\texorpdfstring{TogglePixel()}{TogglePixel()}}
+{\footnotesize\ttfamily \label{takuzu_8c_a214ee94d50d36a640d68d11afec08c11} 
+uint8\+\_\+t Toggle\+Pixel (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{x}{, }\item[{uint8\+\_\+t}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Toggles the value of a specific cell in the Takuzu grid. 
+
+This function toggles the value of a cell at position (x, y) in the {\ttfamily takuzu\+To\+Play} grid. The cell goes through three possible states\+: 0 -\/\texorpdfstring{$>$}{>} 1 -\/\texorpdfstring{$>$}{>} 2 -\/\texorpdfstring{$>$}{>} 0. If the cell is fixed (i.\+e., its value is not EMPTY in the {\ttfamily takuzu\+To\+Solve} grid), the function prevents modification. After changing the value, the grid is updated and displayed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The row index of the cell to toggle. \\
+\hline
+{\em y} & The column index of the cell to toggle.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TAKUZU\+\_\+\+SUCCESS if the operation was successful, TAKUZU\+\_\+\+FAILURE if there was an error (e.\+g., attempting to modify a fixed cell). 
+\end{DoxyReturn}

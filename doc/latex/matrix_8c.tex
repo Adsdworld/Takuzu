@@ -1,0 +1,186 @@
+\doxysection{matrix.\+c File Reference}
+\hypertarget{matrix_8c}{}\label{matrix_8c}\index{matrix.c@{matrix.c}}
+
+
+Matrix module, represent the matrix and functions to interact with it.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include "{}takuzu.\+h"{}}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include "{}WS2812/stm32g4\+\_\+ws2812.\+h"{}}\newline
+{\ttfamily \#include $<$matrix.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{matrix_8c_a220fe51e38d4282320c4bdd096fe8664}{Move\+Pixel}} ()
+\begin{DoxyCompactList}\small\item\em Moves the active pixel on the LED matrix. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{matrix_8c_a1fe0b429e2bda64bfc788e5046110346}{Init\+Matrix}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the LED matrix display. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{matrix_8c_aa056c9f0fed80ba5a942dd6c18a9334e}{Get\+PixelX}} ()
+\begin{DoxyCompactList}\small\item\em Gets the current X coordinate of the active pixel. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{matrix_8c_af31c7cdb75a8dced36528f8f82cb6c88}{Get\+PixelY}} ()
+\begin{DoxyCompactList}\small\item\em Gets the current Y coordinate of the active pixel. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{matrix_8c_aabeaadb60f46d062a8088f352ffe319e}{Set\+PixelX}} (int8\+\_\+t x)
+\begin{DoxyCompactList}\small\item\em Sets the X coordinate of the active pixel. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{matrix_8c_a06d668bb6d79ae701e3a54faab1a299d}{Set\+PixelY}} (int8\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em Sets the Y coordinate of the active pixel. \end{DoxyCompactList}\item 
+uint32\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{matrix_8c_a95b8fd4839c07aae2f7b4bf650bbedc9}{Get\+Matrix\+Pixels}} (void)
+\begin{DoxyCompactList}\small\item\em Gets Matrix pixels tab. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{matrix_8c_a52ff9d9ff2c56b7e97d936b060e582c8}{Set\+Matrix\+Pixels}} (uint8\+\_\+t index, uint32\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Sets matrix pixels tab. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{matrix_8c_a8fd8a44bda84d029fd58cb37365b1170}\label{matrix_8c_a8fd8a44bda84d029fd58cb37365b1170} 
+int8\+\_\+t {\bfseries matrix\+\_\+pixel\+\_\+x} = 4
+\item 
+\Hypertarget{matrix_8c_aeffcec5d343d4d42ca1f22da43d25922}\label{matrix_8c_aeffcec5d343d4d42ca1f22da43d25922} 
+int8\+\_\+t {\bfseries matrix\+\_\+pixel\+\_\+y} = 4
+\item 
+\Hypertarget{matrix_8c_a10eefac2ce6b4576084c66a2f67a7391}\label{matrix_8c_a10eefac2ce6b4576084c66a2f67a7391} 
+uint32\+\_\+t {\bfseries pixels} \mbox{[}MATRIX\+\_\+\+SIZE\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Matrix module, represent the matrix and functions to interact with it. 
+
+\begin{DoxyAuthor}{Author}
+Arthur de Sallier Dupin 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2025-\/05-\/02 
+\end{DoxyDate}
+
+
+\label{doc-func-members}
+\Hypertarget{matrix_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{matrix_8c_a95b8fd4839c07aae2f7b4bf650bbedc9}\index{matrix.c@{matrix.c}!GetMatrixPixels@{GetMatrixPixels}}
+\index{GetMatrixPixels@{GetMatrixPixels}!matrix.c@{matrix.c}}
+\doxysubsubsection{\texorpdfstring{GetMatrixPixels()}{GetMatrixPixels()}}
+{\footnotesize\ttfamily \label{matrix_8c_a95b8fd4839c07aae2f7b4bf650bbedc9} 
+uint32\+\_\+t \texorpdfstring{$\ast$}{*} Get\+Matrix\+Pixels (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Gets Matrix pixels tab. 
+
+\begin{DoxyReturn}{Returns}
+tab uint32\+\_\+t. 
+\end{DoxyReturn}
+\Hypertarget{matrix_8c_aa056c9f0fed80ba5a942dd6c18a9334e}\index{matrix.c@{matrix.c}!GetPixelX@{GetPixelX}}
+\index{GetPixelX@{GetPixelX}!matrix.c@{matrix.c}}
+\doxysubsubsection{\texorpdfstring{GetPixelX()}{GetPixelX()}}
+{\footnotesize\ttfamily \label{matrix_8c_aa056c9f0fed80ba5a942dd6c18a9334e} 
+int8\+\_\+t Get\+PixelX (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the current X coordinate of the active pixel. 
+
+\begin{DoxyReturn}{Returns}
+int8\+\_\+t Current X position. 
+\end{DoxyReturn}
+\Hypertarget{matrix_8c_af31c7cdb75a8dced36528f8f82cb6c88}\index{matrix.c@{matrix.c}!GetPixelY@{GetPixelY}}
+\index{GetPixelY@{GetPixelY}!matrix.c@{matrix.c}}
+\doxysubsubsection{\texorpdfstring{GetPixelY()}{GetPixelY()}}
+{\footnotesize\ttfamily \label{matrix_8c_af31c7cdb75a8dced36528f8f82cb6c88} 
+int8\+\_\+t Get\+PixelY (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the current Y coordinate of the active pixel. 
+
+\begin{DoxyReturn}{Returns}
+int8\+\_\+t Current Y position. 
+\end{DoxyReturn}
+\Hypertarget{matrix_8c_a1fe0b429e2bda64bfc788e5046110346}\index{matrix.c@{matrix.c}!InitMatrix@{InitMatrix}}
+\index{InitMatrix@{InitMatrix}!matrix.c@{matrix.c}}
+\doxysubsubsection{\texorpdfstring{InitMatrix()}{InitMatrix()}}
+{\footnotesize\ttfamily \label{matrix_8c_a1fe0b429e2bda64bfc788e5046110346} 
+uint8\+\_\+t Init\+Matrix (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the LED matrix display. 
+
+This function initializes the WS2812 LED driver and displays a test pattern with a full matrix set to light red. It can be used to verify that the matrix hardware is properly connected and functional.
+
+\begin{DoxyReturn}{Returns}
+MATRIX\+\_\+\+SUCCESS on success or MATRIX\+\_\+\+FAILURE on failure. 
+\end{DoxyReturn}
+\Hypertarget{matrix_8c_a220fe51e38d4282320c4bdd096fe8664}\index{matrix.c@{matrix.c}!MovePixel@{MovePixel}}
+\index{MovePixel@{MovePixel}!matrix.c@{matrix.c}}
+\doxysubsubsection{\texorpdfstring{MovePixel()}{MovePixel()}}
+{\footnotesize\ttfamily \label{matrix_8c_a220fe51e38d4282320c4bdd096fe8664} 
+uint8\+\_\+t Move\+Pixel (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Moves the active pixel on the LED matrix. 
+
+This function checks that the pixel coordinates are within the matrix bounds (0 to 7), then updates the matrix display to move the cursor to the specified position. It uses the current state of a Takuzu puzzle and overlays the cursor pixel.
+
+\begin{DoxyReturn}{Returns}
+MATRIX\+\_\+\+SUCCESS on success or MATRIX\+\_\+\+FAILURE on failure. 
+\end{DoxyReturn}
+\Hypertarget{matrix_8c_a52ff9d9ff2c56b7e97d936b060e582c8}\index{matrix.c@{matrix.c}!SetMatrixPixels@{SetMatrixPixels}}
+\index{SetMatrixPixels@{SetMatrixPixels}!matrix.c@{matrix.c}}
+\doxysubsubsection{\texorpdfstring{SetMatrixPixels()}{SetMatrixPixels()}}
+{\footnotesize\ttfamily \label{matrix_8c_a52ff9d9ff2c56b7e97d936b060e582c8} 
+uint8\+\_\+t Set\+Matrix\+Pixels (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{index}{, }\item[{uint32\+\_\+t}]{color}{}\end{DoxyParamCaption})}
+
+
+
+Sets matrix pixels tab. 
+
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\Hypertarget{matrix_8c_aabeaadb60f46d062a8088f352ffe319e}\index{matrix.c@{matrix.c}!SetPixelX@{SetPixelX}}
+\index{SetPixelX@{SetPixelX}!matrix.c@{matrix.c}}
+\doxysubsubsection{\texorpdfstring{SetPixelX()}{SetPixelX()}}
+{\footnotesize\ttfamily \label{matrix_8c_aabeaadb60f46d062a8088f352ffe319e} 
+uint8\+\_\+t Set\+PixelX (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{x}{}\end{DoxyParamCaption})}
+
+
+
+Sets the X coordinate of the active pixel. 
+
+This function updates the current X position of the pixel, ensuring it stays within the valid range (0 to 7).
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & New X coordinate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MATRIX\+\_\+\+SUCCESS on success or MATRIX\+\_\+\+FAILURE on failure. 
+\end{DoxyReturn}
+\Hypertarget{matrix_8c_a06d668bb6d79ae701e3a54faab1a299d}\index{matrix.c@{matrix.c}!SetPixelY@{SetPixelY}}
+\index{SetPixelY@{SetPixelY}!matrix.c@{matrix.c}}
+\doxysubsubsection{\texorpdfstring{SetPixelY()}{SetPixelY()}}
+{\footnotesize\ttfamily \label{matrix_8c_a06d668bb6d79ae701e3a54faab1a299d} 
+uint8\+\_\+t Set\+PixelY (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Sets the Y coordinate of the active pixel. 
+
+This function updates the current Y position of the pixel, ensuring it stays within the valid range (0 to 7).
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & New Y coordinate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MATRIX\+\_\+\+SUCCESS on success or MATRIX\+\_\+\+FAILURE on failure. 
+\end{DoxyReturn}

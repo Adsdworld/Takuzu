@@ -1,3 +1,10 @@
+/**
+ * @file matrix.c
+ * @author Arthur de Sallier Dupin
+ * @brief Matrix module, represent the matrix and functions to interact with it.
+ * @version 1.1
+ * @date 2025-05-02
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
